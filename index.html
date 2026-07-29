@@ -967,9 +967,9 @@
 
     <script>
         // ==================================================================
-        // 💡 구글 웹앱 API 주소 (절대 건드리지 마세요!)
+        // 💡 구글 웹앱 API 주소
         // ==================================================================
-        const API_URL = "https://script.google.com/macros/s/AKfycbyxJ5fZBBQtxRVp_CjrZGQQ_QgZkpumMQ3w3rq5iMBFWju-5yJw02NA0KR-D_x9f08j/exec";
+        const API_URL = "https://script.google.com/macros/s/AKfycbzWfm4eKJYeh58l1cKpJ-ZxbVeYBVzEICG7h2cJTUPJEbSBtm4RIMWK-TqHcU3AcrA/exec";
 
         // ==================================================================
         // 전역 변수 및 DOM 요소
@@ -1031,10 +1031,10 @@
         let gameOverDebris = [];
         let isInputLocked = false;
         let animationFrameId;
-        let lastTime = 0; // 💡 애니메이션 프레임 제어를 위한 변수
+        let lastTime = 0;
 
         // ==================================================================
-        // 퀴즈 데이터 96문제 전체 (가로 배열 형태)
+        // 💡 퀴즈 데이터 영역 (기존 코드 그대로 유지)
         // ==================================================================
         const quizzes = [
             { id: 101, type: 'one-step-ox', difficulty: '하', case: "형법은 범죄와 그에 대한 법적 효과로서 형벌과 보안 처분을 규정한 모든 법 규범을 의미한다.", q1: 'O', explanation: "형법은 넓은 의미에서 범죄와 그에 대한 법적 효과로서 형벌과 보안 처분을 규정한 모든 법 규범의 총체를 의미한다." },
@@ -1096,7 +1096,7 @@
             
             { id: 301, type: 'two-step', difficulty: '상', case: "형법의 규범적 기능은 국민에게 행위의 준칙으로 삼도록 하고, 법관에게는 범죄 성립 여부를 판단하는 평가 규범으로서의 역할을 한다.", q1: 'O', q2_question: "다음은 어떤 사람이 법정에서 '범죄인 줄 몰랐다'고 주장했으나 처벌받은 사례입니다. 이 사례를 통해 알 수 있는 형법의 기능으로 가장 적절한 것은?", q2: ["보호적 기능", "보장적 기능", "규범적 기능", "보충적 기능"], answerIndex: 2, explanation: "국민이 준수해야 할 행위 준칙을 제시하고, 법관에게는 판단 기준을 제공하는 규범적 기능에 해당한다." },
             { id: 302, type: 'two-step', difficulty: '상', case: "형법 제243조는 '음란한 문서, 도화, 필름, 그 밖의 물건을 공공연하게 전시한 자'를 처벌하도록 규정하고 있으나, '음란'의 개념이 명확히 정의되어 있지 않다. 이에 따라 A가 성인용 만화를 출판한 사건에서, 법원은 해당 만화가 예술성과 표현의 자유를 고려할 때 명백한 음란물로 단정하기 어렵고, '음란'이라는 용어 자체가 불명확하다는 이유로 무죄를 선고하였다. 법원의 판단은 죄형법정주의 원칙에 어긋나는가?", q1: 'X', q2_question: "이 사례에서 법원의 판단 근거가 된 죄형 법정주의의 원칙은 무엇입니까?", q2: ["관습 형법 금지의 원칙", "소급효 금지의 원칙", "명확성의 원칙", "유추 해석 금지의 원칙"], answerIndex: 2, explanation: "'음란'이라는 용어가 모호하여 법 적용이 어려웠던 사례로, 죄형 법정주의의 명확성 원칙을 보여준다." },
-            { id: 303, type: 'two-step', difficulty: '상', case: "범죄가 성립하려면 고의가 요구되며, 과실에 의한 행위는 특별한 규정이 있는 경우에만 처벌된다. 따라서 과실에 의한 행위는 어떤 경우에도 형법상 범죄가 성립하지 않는다.", q1: 'X', q2_question: "다음 중 과실범 처벌 규정이 없어 범죄로 성립하지 않는 사례는?", q2: ["자기의 물건과 비슷한 타인의 물건을 고의로 훔치려 한 경우", "실수로 타인의 물건을 파손했으나 과실범 처벌 규정이 없는 경우", "법률상 금지된 행위임을 알면서 저지른 경우", "금전적 이득을 목적으로 타인을 속여 재산을 편취한 경우"], answerIndex: 1, explanation: "과실에 의한 행위라도 법에 명시된 처벌 규정이 있어야만 범죄로 성립한다." },
+            { id: 303, type: 'two-step', difficulty: '상', case: "범죄가 성립하려면 고의가 요구되며, 과실에 의한 행위는 특별한 규정이 있는 경우에만 처벌된다. 따라서 과실에 의한 행위는 어떤 경우에도 형법상 범죄가 성립하지 않는다.", q1: 'X', q2_question: "다음 중 과실범 처벌 규정이 없어 범죄로 성립하지 않는 사례는?", q2: ["자기의 물건과 비슷한 타인의 물건을 고의로 훔치려 한 경우", "실수로 타인의 물건 파손했으나 과실범 처벌 규정이 없는 경우", "법률상 금지된 행위임을 알면서 저지른 경우", "금전적 이득을 목적으로 타인을 속여 재산을 편취한 경우"], answerIndex: 1, explanation: "과실에 의한 행위라도 법에 명시된 처벌 규정이 있어야만 범죄로 성립한다." },
             { id: 304, type: 'two-step', difficulty: '상', case: "피해자의 승낙이 있다고 하여 모든 경우에 위법성이 조각되는 것은 아니다. 따라서 피해자의 승낙이 있는 경우 위법성은 항상 조각된다.", q1: 'X', q2_question: "다음 중 피해자의 승낙에도 불구하고 위법성이 조각되지 않아 범죄가 성립하는 사례는?", q2: ["의사의 수술로 상해를 입힌 경우", "채무자가 동의했지만 신체 일부를 취득한 경우", "조난자를 위해 타인의 집에 침입한 경우", "15세 미성년자의 성적 자기결정권 동의가 있는 경우"], answerIndex: 1, explanation: "사회 통념상 용인될 수 없는 경우(예: 신체 일부를 강제로 취득)는 승낙이 있어도 위법성이 조각되지 않는다." },
             { id: 305, type: 'two-step', difficulty: '상', case: "형벌의 종류 중 재산형에는 벌금, 과료, 몰수가 포함된다.", q1: 'O', q2_question: "다음 중 재산형에 해당하지 않는 형벌은?", q2: ["벌금 5,000만 원", "과료 30,000원", "몰수", "자격 정지 1년"], answerIndex: 3, explanation: "자격 정지는 인격이나 자격을 제한하는 명예형이다." },
             { id: 306, type: 'two-step', difficulty: '상', case: "소년 보호 처분에는 보호 관찰, 소년원 송치 등이 포함되며, 이는 형벌이 아닌 보호 처분의 일종이다.", q1: 'O', q2_question: "다음 중 「소년법」상 소년에게 사형 또는 무기형이 선고될 경우 적용되는 특칙은?", q2: ["사형 또는 무기형이 그대로 집행된다.", "사형 또는 무기형 대신 15년의 유기 징역으로 한다.", "23세가 될 때까지 소년 교도소에 수용된다.", "소년 보호 처분으로 소년원에 송치된다."], answerIndex: 1, explanation: "형법상 만 18세 미만인 소년에게는 사형·무기형을 선고할 수 없으며, 유기징역 15년으로 대체된다." },
@@ -1106,7 +1106,7 @@
             { id: 310, type: 'two-step', difficulty: '상', case: "형법에서는 두 개 이상의 같은 종류의 형(예: 징역형)에 대해 형을 정할 때, 가장 무거운 죄의 형에 그 형의 절반까지를 더해 처벌할 수 있도록 하고 있다.", q1: 'O', q2_question: "甲은 특수절도죄(최고 징역 5년)와 사기죄(최고 징역 3년)를 함께 저질렀다. 두 범죄 모두 징역형으로 가능한 같은 종류의 형벌이 부과될 수 있다. 형법 규정에 따라 甲이 받을 수 있는 최대 징역 형량은?", q2: ["5년", "7년 6개월", "8년", "50년"], answerIndex: 1, explanation: "두 범죄가 모두 징역형이므로 같은 종류의 형에 해당 단일 범죄에 해당한다. 이 경우 형법상 가장 무거운 죄인 특수절도죄(최고 5년)에 그 절반인 2년 6개월을 더해 최대 7년 6개월까지 처벌할 수 있다." },
             { id: 311, type: 'two-step', difficulty: '상', case: "갑은 밤늦게 귀가하던 중 자신에게 흉기를 휘두르며 금품을 요구하는 강도 을을 만났다. 갑은 을의 공격을 막기 위해 우산으로 반격했고, 이로 인해 을은 골절상을 입었다. 이 경우 갑의 행위는 범죄로 성립한다.", q1: 'X', q2_question: "위 사례에서 갑의 행위에 해당하는 위법성 조각 사유는 무엇인가?", q2: ["긴급 피난", "정당방위", "자구 행위", "정당 행위"], answerIndex: 1, explanation: "현재의 부당한 침해에 대한 자기방어이므로 정당방위에 해당한다." },
             { id: 312, type: 'two-step', difficulty: '상', case: "등산객 갑은 산에서 멧돼지 떼를 만나 위협을 느끼고, 옆에 있던 다른 등산객 을의 텐트 뒤로 몸을 숨겼다. 그 과정에서 텐트가 손상되었다. 이 경우 갑의 행위는 형법상 정당화될 수 있다.", q1: 'O', q2_question: "위 사례에서 갑의 행위에 해당하는 위법성 조각 사유는 무엇인가?", q2: ["정당방위", "긴급 피난", "자구 행위", "정당 행위"], answerIndex: 1, explanation: "자기 법익에 대한 현재의 위난을 피하기 위한 상당한 이유 있는 행위로서 긴급피난에 해당한다." },
-            { id: 313, type: 'two-step', difficulty: '상', case: "택배 기사인 갑은 졸음을 이기지 못해 법정 제한 속도를 일시 초과하며 운전했다. 인명 피해는 없었지만 도로교통법 위반으로 단속되었다. 이 경우 갑의 행위는 정당한 사유에 의해 위법성이 조각된다.", q1: 'X', q2_question: "위 사례에서 갑의 행위가 위법성 조각 사유에 해당한다고 보기 어려운 가장 적절한 이유는?", q2: ["정당방위 요건을 충족하지 못했기 때문이다.", "고의가 없었기 때문이다.", "사회 상규에 어긋나는 행위이기 때문이다.", "법률보다 판례가 우선 적용되기 때문이다."], answerIndex: 2, explanation: "정당 행위로 보기 위해서는 사회 상규에 부합해야 하나, 해당 행위는 이에 어긋난다." },
+            { id: 313, type: 'two-step', difficulty: '상', case: "택배 기사인 갑은 졸음을 이기지 못해 법정 제한 속도를 일시 초과하며 운전했다. 인명 피해는 없었지만 도로교통법 위반으로 단속되었다. 이 경우 갑의 행위는 정당한 사유에 의해 위법성이 조각된다.", q1: 'X', q2_question: "위 사례에서 갑의 행위가 위법성 조각 사유에 해당한다고 보기 어려운 가장 적절 이유는?", q2: ["정당방위 요건을 충족하지 못했기 때문이다.", "고의가 없었기 때문이다.", "사회 상규에 어긋나는 행위이기 때문이다.", "법률보다 판례가 우선 적용되기 때문이다."], answerIndex: 2, explanation: "정당 행위로 보기 위해서는 사회 상규에 부합해야 하나, 해당 행위는 이에 어긋난다." },
             { id: 314, type: 'two-step', difficulty: '상', case: "채무자 갑은 도망 중이었다. 채권자 을은 우연히 길에서 갑을 마주쳐 도망을 막기 위해 그의 가방을 붙잡았고, 이로 인해 가방이 파손되었다. 이 경우 을의 행위는 위법성이 조각된다.", q1: 'O', q2_question: "위 사례에서 을의 행위에 해당하는 위법성 조각 사유는 무엇인가?", q2: ["정당방위", "긴급 피난", "자구 행위", "정당 행위"], answerIndex: 2, explanation: "국가의 구제를 기대하기 어려운 상황에서 청구권 실현을 위한 불가피한 자구 행위다." },
             { id: 315, type: 'two-step', difficulty: '상', case: "경찰청은 불량 식재료를 유통한 식품 업체에 대한 정보를 수사 후 국민 건강 보호 차원에서 언론에 공표하였다. 이로 인해 업체의 명예는 실추되었다. 이 경우 경찰청의 행위는 위법성이 인정된다.", q1: 'X', q2_question: "위 사례에서 경찰청의 행위에 해당하는 위법성 조각 사유는 무엇인가?", q2: ["정당방위", "긴급 피난", "자구 행위", "정당 행위"], answerIndex: 3, explanation: "공익 목적과 진실성, 필요성이 인정되므로 정당 행위로서 위법성이 조각된다." },
             { id: 316, type: 'two-step', difficulty: '상', case: "야간 근무 중인 경비원 갑은 침입자를 제지하던 중 반격을 받고, 시설 보호를 위해 물리력을 사용해 제압하였다. 침입자는 경미한 상처를 입었다. 이 경우 갑의 행위는 형법상 범죄로 성립한다.", q1: 'X', q2_question: "위 사례에서 갑의 행위에 해당하는 위법성 조각 사유는 무엇인가?", q2: ["긴급 피난", "정당방위", "자구 행위", "정당 행위"], answerIndex: 1, explanation: "현재의 부당한 침해에 대응한 자기방어로서 정당방위에 해당한다." },
@@ -1139,7 +1139,120 @@
         ];
 
         // ==================================================================
-        // 통신 및 유틸리티 함수
+        // 🌟 누락되었던 핵심 유틸리티 함수 복구 영역
+        // ==================================================================
+
+        // 화면 전환 함수
+        function showScreen(screenId) {
+            screens.forEach(screen => screen.classList.remove('active'));
+            document.getElementById(screenId).classList.add('active');
+            gameState.currentScreen = screenId;
+        }
+
+        // BGM 자동 재생 함수
+        function initAndPlayBGM() {
+            if (bgmAudioElement.paused) {
+                bgmAudioElement.volume = 0.3; // 볼륨 30%
+                bgmAudioElement.play().catch(e => console.log("BGM 자동 재생 방지됨", e));
+            }
+        }
+
+        // 랭킹 화면 표시 및 데이터 로드 함수
+        async function openRankingScreen() {
+            showScreen('ranking-screen');
+            const listContent = document.getElementById('ranking-list-content');
+            listContent.innerHTML = "<p>서버에서 랭킹을 불러오는 중입니다...</p>";
+            const res = await fetchAPI('getRankings');
+            
+            if (res.error) {
+                listContent.innerHTML = `<p style="color:var(--danger-color);">${res.error}</p>`;
+                return;
+            }
+            if (!res.rankings || res.rankings.length === 0) {
+                listContent.innerHTML = "<p>아직 등록된 랭킹이 없습니다.</p>";
+                return;
+            }
+            
+            let html = "<table><tr><th>순위</th><th>닉네임</th><th>레벨</th><th>점수</th></tr>";
+            res.rankings.forEach((r, idx) => {
+                html += `<tr><td>${idx + 1}</td><td>${r.nickname}</td><td>${r.level}</td><td>${r.score}</td></tr>`;
+            });
+            html += "</table>";
+            listContent.innerHTML = html;
+        }
+
+        // 게임 상태 초기화 함수
+        function resetGameState() {
+            gameState = {
+                player: { name: '', class: '', gender: '', level: 1, imageKey: '' },
+                score: 0,
+                clearedStages: { "하": false, "중": false, "상": false },
+                isChallengeUnlocked: false,
+                isAdmin: false,
+                difficulty: '',
+                lives: 3,
+                questionsCorrect: 0,
+                currentMonster: null,
+                currentQuiz: null,
+                usedQuizIds: [],
+                isBossFight: false,
+                bossStage: 0,
+                hasUsedUltimate: false,
+                currentScreen: '',
+                animation: { type: null, duration: 0, progress: 0, onEnd: null, data: {} },
+                isSkippable: false,
+                skippableTimeoutId: null,
+                onSkip: null
+            };
+        }
+
+        // 게임 시작 초기 세팅
+        function initGame() {
+            resetGameState();
+            showScreen('story-screen');
+        }
+
+        // 서버 저장 로직
+        async function saveGame(showAlert) {
+            if (!gameState.player.name) return;
+            const dataToSave = {
+                nickname: gameState.player.name,
+                class: gameState.player.class,
+                gender: gameState.player.gender,
+                level: gameState.player.level,
+                score: gameState.score,
+                clearedStages: gameState.clearedStages,
+                isAdmin: gameState.isAdmin
+            };
+            
+            if (showAlert) showMessage("서버에 저장 중...");
+            const res = await fetchAPI('save', { playerData: dataToSave });
+            
+            if (showAlert) {
+                if (res.error) showMessage(`저장 실패: ${res.error}`);
+                else showMessage("게임 데이터가 서버에 안전하게 저장되었습니다.");
+            }
+        }
+
+        // 애니메이션 시작 제어
+        function startAnimation(type, duration, onEnd) {
+            gameState.animation = { type, duration, progress: 0, onEnd, data: {} };
+        }
+
+        // 애니메이션 초기화(스킵)
+        function clearAnimation() {
+            if (gameState.skippableTimeoutId) {
+                clearTimeout(gameState.skippableTimeoutId);
+                gameState.skippableTimeoutId = null;
+            }
+            gameState.isSkippable = false;
+            gameState.onSkip = null;
+            gameState.animation = { type: null, duration: 0, progress: 0, onEnd: null, data: {} };
+        }
+
+
+        // ==================================================================
+        // 통신 및 유틸리티 함수 (기존 코드 유지)
         // ==================================================================
         async function fetchAPI(action, data = {}) {
             const payload = { action: action, ...data };
@@ -1231,7 +1344,7 @@
         }
 
         // ==================================================================
-        // 이벤트 리스너 통합 설정 (🌟이번에 누락 복구된 핵심 부분)
+        // 이벤트 리스너 통합 설정
         // ==================================================================
         function setupEventListeners() {
             // 화면 전환 및 BGM
