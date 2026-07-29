@@ -748,7 +748,6 @@
 </head>
 <body>
     <div id="game-container">
-        <!-- 1. 스토리 화면 -->
         <div id="story-screen" class="screen">
             <div class="story-content">
                 <h2>🕯️ 지식의 서를 찾아서 🕯️</h2>
@@ -761,7 +760,6 @@
             </div>
         </div>
 
-        <!-- 2. 시작 화면 -->
         <div id="start-screen" class="screen">
             <div class="title-container">
                 <h1>Dungeon & Law</h1>
@@ -773,7 +771,6 @@
             </div>
         </div>
 
-        <!-- 3. 로그인 화면 -->
         <div id="login-screen" class="screen">
             <h2>접속하기</h2>
             <p style="margin-bottom: 20px;">닉네임과 비밀번호를 입력하세요.</p>
@@ -788,7 +785,6 @@
             </div>
         </div>
 
-        <!-- 4. 명예의 전당 화면 -->
         <div id="ranking-screen" class="screen">
             <h2>🏆 명예의 전당 (상위 50명) 🏆</h2>
             <div class="ranking-container">
@@ -804,7 +800,6 @@
             </div>
         </div>
 
-        <!-- 5. 캐릭터 선택 화면 -->
         <div id="character-selection-screen" class="screen">
             <h2>캐릭터 선택</h2>
             <p><span id="display-nickname-char-select" style="color:var(--accent-color); font-weight:bold;"></span>님, 당신의 분신이 될 용사를 선택하세요.</p>
@@ -829,7 +824,6 @@
             <button id="confirm-character-btn" class="btn">선택 완료</button>
         </div>
         
-        <!-- 6. 난이도 선택 화면 -->
         <div id="difficulty-selection-screen" class="screen">
             <div id="difficulty-char-status"></div>
             
@@ -867,7 +861,6 @@
              </div>
         </div>
 
-        <!-- 7. 인게임 화면 -->
         <div id="game-screen" class="screen">
             <div id="status-bar">
                 <div id="player-info-left">
@@ -896,7 +889,6 @@
             </div>
         </div>
         
-        <!-- 각종 모달(팝업) 창 -->
         <div id="message-modal" class="modal-overlay">
             <div class="modal-content">
                 <p id="message-text"></p>
@@ -911,29 +903,15 @@
                     <li><strong>목표:</strong> 형법 퀴즈를 풀어 몬스터를 물리치고 던전을 클리어하세요!</li>
                     <li><strong>게임 흐름:</strong>
                         <ol>
-                            <li>계정 접속 및 캐릭터 생성 후, 원하는 난이도를 선택하여 게임을 시작합니다.</li>
-                            <li>몬스터가 등장하면 퀴즈가 출제됩니다.</li>
-                            <li>퀴즈를 맞혀야 몬스터에게 데미지를 줄 수 있습니다.</li>
-                            <li>틀리면 목숨이 1개 줄어듭니다. 목숨이 0이 되면 게임 오버!</li>
-                            <li>난이도별 정답 수를 채우면 강력한 보스가 등장합니다.</li>
+                            <li>계정 접속 및 캐릭터 생성 후, 원하는 난이도를 선택하여 게임 시작.</li>
+                            <li>몬스터 등장 시 퀴즈 출제.</li>
+                            <li>퀴즈를 맞혀야 몬스터 공격 가능. 틀리면 목숨 감소 (0 되면 오버).</li>
+                            <li>난이도별 정답 수를 채우면 보스 등장.</li>
                         </ol>
                     </li>
-                    <li><strong>궁극기:</strong>
-                        <ul>
-                            <li>각 던전마다 한 번, 퀴즈를 풀지 않고 몬스터를 즉시 처치하는 강력한 기술입니다.</li>
-                            <li>'궁극기' 버튼으로 사용하며, 사용 시 해당 문제의 정답과 해설이 표시됩니다.</li>
-                            <li>궁극기는 정답 횟수에 포함되지 않습니다.</li>
-                            <li>주의: '하', '중', '상' 난이도의 보스에게는 사용할 수 없습니다. ('도전자' 모드에서는 가능)</li>
-                        </ul>
-                    </li>
-                    <li><strong>레벨업:</strong>
-                        <ul>
-                            <li>각 난이도의 보스를 물리칠 때마다 레벨이 오르며, 공격 및 궁극기 이펙트가 확연하게 강력해집니다.</li>
-                            <li>'도전자' 모드에서 200점 이상 획득 시 최종 레벨인 5레벨에 도달할 수 있습니다.</li>
-                        </ul>
-                    </li>
-                    <li><strong>도전자 모드:</strong> 모든 난이도를 클리어하면 '도전자' 모드가 해금됩니다. 이 모드에서는 3개의 목숨으로 최대한 높은 점수를 기록하는 것에 도전합니다!</li>
-                    <li><strong>저장/불러오기:</strong> 닉네임과 비밀번호를 기반으로 클리어 정보가 서버에 자동 기록 및 저장됩니다.</li>
+                    <li><strong>궁극기:</strong> 각 던전 1회 제한, 퀴즈 패스 즉시 처치 (보스 제외).</li>
+                    <li><strong>레벨업:</strong> 각 난이도 보스 처치 시 레벨업 및 스킬 강화.</li>
+                    <li><strong>도전자 모드:</strong> 모든 난이도 클리어 시 해금. 최고 점수에 도전!</li>
                 </ul>
                 <button id="instructions-close-btn" class="btn">닫기</button>
             </div>
@@ -981,7 +959,7 @@
 
     <script>
         // ==================================================================
-        // 💡 구글 웹앱 API 주소 
+        // 백엔드 연결 (선생님의 웹앱 API 주소)
         // ==================================================================
         const API_URL = "https://script.google.com/macros/s/AKfycbyxJ5fZBBQtxRVp_CjrZGQQ_QgZkpumMQ3w3rq5iMBFWju-5yJw02NA0KR-D_x9f08j/exec";
 
@@ -1045,10 +1023,9 @@
         let gameOverDebris = [];
         let isInputLocked = false;
         let animationFrameId;
+        let lastTime = 0; // 💡 애니메이션 프레임 제어를 위한 변수 (여기서 정의)
 
-        // ==================================================================
-        // 퀴즈 데이터 전체 보존 (96문제 풀세트)
-        // ==================================================================
+        // 💡 퀴즈 데이터 96문제 전체 로드 (단축된 가로 형태)
         const quizzes = [
             { id: 101, type: 'one-step-ox', difficulty: '하', case: "형법은 범죄와 그에 대한 법적 효과로서 형벌과 보안 처분을 규정한 모든 법 규범을 의미한다.", q1: 'O', explanation: "형법은 넓은 의미에서 범죄와 그에 대한 법적 효과로서 형벌과 보안 처분을 규정한 모든 법 규범의 총체를 의미한다." },
             { id: 102, type: 'one-step-ox', difficulty: '하', case: "실질적 의미의 형법은 ‘형법’이라는 명칭이 붙여진 법률만을 의미한다.", q1: 'X', explanation: "단순히 '형법'이라는 이름의 법률을 지칭하는 것은 형식적 의미의 형법이다." },
@@ -1098,7 +1075,7 @@
             { id: 218, type: 'single', difficulty: '중', case: "형벌의 종류 중, 교정 시설에 수용하되 노역을 부과하지 않는 형벌은?", q2: ["징역", "금고", "구류", "벌금"], answerIndex: 1, explanation: "금고는 1개월 이상 교정 시설에 수용하여 집행하지만 노역을 부과하지 않는다. 구류도 노역을 부과하지 않으나 기간이 1일 이상 30일 미만으로 제한된다. 징역은 교정 시설에 수용하여 정해진 노역에 복무하게 한다." },
             { id: 219, type: 'single', difficulty: '중', case: "갑은 귀가 도중 모르는 사람이 흉기를 들고 위협하자, 반사적으로 상대방의 손을 가격해 상해를 입혔다. 이 경우 갑의 행위는 위법성이 조각되는지 판단해야 강구해야 한다. 이 사례에 적용될 수 있는 법적 개념은?", q2: ["자구행위", "정당방위", "긴급피난", "피해자의 승낙"], answerIndex: 1, explanation: "현재의 부당한 침해에 대하여 자기 또는 타인의 법익을 보호하기 위한 상당한 방어행위는 정당방위로서 위법성이 조각된다." },
             { id: 220, type: 'single', difficulty: '중', case: "을은 심한 정신질환으로 인해 현실 판단 능력을 상실한 상태에서 행인을 폭행하였다. 이 경우 법적으로 가장 적절한 판단은?", q2: ["범죄가 성립하며, 형이 감경된다.", "범죄가 성립하며, 위법성이 조각된다.", "범죄가 성립하지 않는다.", "책임이 인정되며, 벌금형이 가능하다."], answerIndex: 2, explanation: "심신상실자의 경우 책임 능력이 인정되지 않으므로 구성요건 해당성과 위법성이 있어도 범죄는 성립하지 않는다." },
-            { id: 221, type: 'single', difficulty: '중', case: "병은 자신에게 빌린 돈을 갚지 않고 해외로 도주 중인 범인을 붙잡아 경찰이 오기 전까지 신체를 강제로 구속하였다. 병의 행위에 대한 법적 평가로 가장 적절한 것은?", q2: ["고의 없는 과실범으로 처벌된다.", "자구행위로 위법성이 조각될 수 있다.", "정당방위에 해당한다.", "구성요건 해당성이 없어 처벌 대상이 아니다."], answerIndex: 1, explanation: "자구행위는 청구권의 보전을 위한 불가피한 행위로 인정되며, 일정 요건을 갖춘 경우 위법성이 조각될 수 있다." },
+            { id: 221, type: 'single', difficulty: '중', case: "병은 자신에게 빌린 돈을 갚지 않고 해외로 도주 중인 범인을 붙잡아 경찰이 오기 전까지 신체를 강제로 구속하였다. 병의 행위에 대한 법적 평가로 가장 적절한 초것은?", q2: ["고의 없는 과실범으로 처벌된다.", "자구행위로 위법성이 조각될 수 있다.", "정당방위에 해당한다.", "구성요건 해당성이 없어 처벌 대상이 아니다."], answerIndex: 1, explanation: "자구행위는 청구권의 보전을 위한 불가피한 행위로 인정되며, 일정 요건을 갖춘 경우 위법성이 조각될 수 있다." },
             { id: 222, type: 'single', difficulty: '중', case: "정은 생명을 위협하는 급박한 화재 현장에서 대피하던 중, 다른 사람의 창고 문을 부수고 진입하여 피난하였다. 이 경우 정에게 가장 적절한 법적 평가 기준은?", q2: ["긴급피난", "정당방위", "피해자의 승낙", "심신미약"], answerIndex: 0, explanation: "생명이나 신체에 대한 현재의 위난을 피하기 위한 상당한 행위는 긴급피난에 해당하여 위법성이 조각될 수 있다." },
             { id: 223, type: 'single', difficulty: '중', case: "만 13세인 미성년자 무는 분노를 참지 못하고 친구의 휴대전화를 고의로 파손하였다. 이 경우 무의 법적 책임은?", q2: ["구성요건해당성이 없으므로 범죄가 아니다.", "형사 미성년자이므로 범죄가 성립하지 않는다.", "과실행위이므로 경범죄 처벌이 가능하다.", "위법성이 조각되어 처벌되지 않는다."], answerIndex: 1, explanation: "형법상 만 14세 미만은 형사 미성년자로 규정되며, 책임 능력이 없어 범죄 성립이 부정된다." },
             { id: 224, type: 'single', difficulty: '중', case: "심한 불안장애를 앓고 있는 기는 타인의 위협에 대해 지나치게 과잉 반응하며 폭력을 행사하였다. 조사 결과 기는 사물 변별 능력은 있으나 충동 조절이 어려운 상태였다. 이 경우 기에게 적용될 수 있는 법적 개념은?", q2: ["심신상실", "심신미약", "피해자의 승낙", "고의 없음"], answerIndex: 1, explanation: "사물을 변별할 수는 있으나 의사결정 능력이나 행동 통제력이 떨어지는 경우 심신미약으로 간주하며, 형이 감경될 수 있다." },
@@ -1132,7 +1109,7 @@
             { id: 323, type: 'two-step', difficulty: '상', case: "심신미약자는 범죄가 성립하지만, 형이 감경될 수 있다.", q1: 'O', q2_question: "다음 중 심신미약으로 형이 감경될 가능성이 가장 높은 경우는?", q2: ["우발적 폭행", "경미한 도박", "정신질환 치료 중 범행", "단순 절도"], answerIndex: 2, explanation: "정신질환 치료 중 범행은 심신미약 상태일 가능성이 있으며 감경 사유로 고려된다." },
             { id: 324, type: 'two-step', difficulty: '상', case: "자구행위는 행위 당시 법적 구제 방법이 있었더라도 정당화될 수 있다.", q1: 'X', q2_question: "다음 중 자구행위로서 인정되기 어려운 사례는?", q2: ["형사절차 없이 금품을 직접 탈취한 경우", "절도범을 붙잡기 위해 문을 잠근 경우", "부정행위를 방지하기 위해 시험지를 압수한 경우", "침입자를 퇴거시키기 위해 밀어낸 경우"], answerIndex: 0, explanation: "법적 절차를 무시한 직접적인 금품 강탈은 자구행위로 정당화될 수 없다." },
             { id: 325, type: 'two-step', difficulty: '상', case: "정당방위는 제3자의 법익을 보호하기 위한 경우에도 적용된다.", q1: 'O', q2_question: "다음 중 타인을 위한 정당방위로 위법성이 조각될 수 있는 사례는?", q2: ["친구의 복수를 위해 상대를 폭행한 경우", "지나가던 사람이 폭행당하는 타인을 구한 경우", "가족이 절도범을 도운 경우", "도발에 응해 먼저 폭행한 경우"], answerIndex: 1, explanation: "타인의 현재의 부당한 침해를 방지하기 위한 상당한 방어행위는 정당방위가 성립된다." },
-            { id: 326, type: 'two-step', difficulty: '상', case: "긴급피난은 법익의 침해가 있더라도 보호하려는 법익이 더 클 경우 허용된다.", q1: 'O', q2_question: "다음 중 긴급피난으로 인정되기 어려운 경우는?", q2: ["홍수 중 피난을 위해 상점 유리창을 깬 경우", "추락 위기에서 타인의 차를 타고 피신한 경우", "불만을 이유로 공공시설을 파괴한 경우", "폭설 속에서 버스에 무단 탑승한 경우"], answerIndex: 2, explanation: "단순 불만에 따른 행위는 위난 회피를 위한 행위로 보기 어려우며 긴급피난에 해당하지 않는다." }, 
+            { id: 326, type: 'two-step', difficulty: '상', case: "긴급피난은 법익의 침해가 있더라도 보호하려는 법익이 더 클 경우 허용된다.", q1: 'O', q2_question: "다음 중 긴급피난로 인정되기 어려운 경우는?", q2: ["홍수 중 피난을 위해 상점 유리창을 깬 경우", "추락 위기에서 타인의 차를 타고 피신한 경우", "불만을 이유로 공공시설을 파괴한 경우", "폭설 속에서 버스에 무단 탑승한 경우"], answerIndex: 2, explanation: "단순 불만에 따른 행위는 위난 회피를 위한 행위로 보기 어려우며 긴급피난에 해당하지 않는다." }, 
 
             { id: 401, type: 'two-step', difficulty: '최상', case: "오늘날 강조되는 실질적 죄형 법정주의는 입법자가 부당한 법률을 제정하는 것까지도 제한하여 국민의 자유와 권리를 보호하고자 한다.", q1: 'O', q2_question: "다음은 조선시대 형벌에 대한 설명입니다. 이를 통해 알 수 있는 현대적 죄형 법정주의 원칙의 중요성은 무엇입니까? <br>\"조선시대에는 성문법 외에 정령이나 사회 통념에 따라 형벌이 부과되기도 했다.\"", q2: ["예측 가능하고 명확한 법률의 중요성", "형벌과 범죄의 비례성 원칙의 중요성", "행위 당시의 법률을 적용하는 행위시법주의의 중요성", "국가 형벌권 남용을 막기 위한 적법 절차의 원칙의 중요성"], answerIndex: 0, explanation: "조선시대의 사례는 성문법 외의 기준으로 형벌이 부과될 수 있었음을 보여준다. 이는 국민이 어떤 행위가 처벌 대상이 되는지 예측할 수 있도록 법률이 명확해야 한다는 현대의 명확성의 원칙과 관습 형법 금지의 원칙의 중요성을 부각시킨다." },
             { id: 402, type: 'two-step', difficulty: '최상', case: "보안처분도 형사 제재이므로 형벌과 같이 부과 요건 등에 있어서 적법절차의 원리가 준수되어야 한다.", q1: 'O', q2_question: "다음 중 형벌과 보안처분에 대한 설명으로 옳은 것을 고르시오.", q2: ["징역형은 재산형에 해당한다.", "벌금형은 일정 기간 신체의 자유를 박탈하는 형벌이다.", "보안 처분은 범죄자의 사회적 위험성을 전제로 특별 예방의 관점에서 부과된다.", "사형은 무기 징역형보다 범죄자에 대한 법익 침해의 정도가 작다."], answerIndex: 2, explanation: "보안 처분은 행위자의 사회적 위험성과 재범의 우려를 전제로 특별 예방의 관점에서 부과된다. ① 징역형은 자유형, ② 벌금형은 재산형, ④ 사형은 가장 큰 법익 침해를 가하는 형벌이다." },
@@ -1152,48 +1129,1675 @@
         ];
 
         // ==================================================================
-        // 메인 게임 루프 시작
+        // 통신 및 유틸리티 함수
         // ==================================================================
-        let lastTime = 0; // 💡 여기서 프레임 계산 변수가 정의됩니다.
-
-        function gameLoop(timestamp) {
-            if (!gameState || gameState.currentScreen !== 'game-screen') {
-                animationFrameId = null;
-                return;
-            }
-            animationFrameId = requestAnimationFrame(gameLoop);
-
-            const deltaTime = (timestamp - lastTime) || 16.6;
-            lastTime = timestamp;
-
-            if (gameState.animation.type) {
-                gameState.animation.progress += deltaTime;
-                if (gameState.animation.progress >= gameState.animation.duration) {
-                    const onEndCallback = gameState.animation.onEnd;
-                    gameState.animation = { type: null, duration: 0, progress: 0, onEnd: null, data: {} };
-                    if (onEndCallback) onEndCallback();
-                }
-            }
-
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            drawDungeonBackground(deltaTime);
-            
-            if (gameState.animation.type === 'dungeon-intro' || gameState.animation.type === 'grand-finale') {
-                drawCharacter(true);
-            } else {
-                drawCharacter(false);
-                if (gameState.animation.type !== 'game-over' && gameState.animation.type !== 'grand-finale') {
-                    drawMonster();
-                }
-            }
-            
-            drawEffects(deltaTime);
-
-            if (gameState.animation.type === 'game-over') {
-                drawGameOverAnimation(deltaTime);
+        async function fetchAPI(action, data = {}) {
+            const payload = { action: action, ...data };
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: "payload=" + encodeURIComponent(JSON.stringify(payload))
+                });
+                return await response.json();
+            } catch (error) {
+                console.error("서버 통신 에러:", error);
+                return { error: "서버와의 통신에 실패했습니다. (인터넷 연결을 확인해주세요)" };
             }
         }
 
+        function lockInput() { isInputLocked = true; }
+        function unlockInput() { isInputLocked = false; }
+
+        function showMessage(text, callback) {
+            lockInput();
+            messageText.innerHTML = text;
+            messageModal.style.display = 'flex';
+            const newOkBtn = messageOkBtn.cloneNode(true);
+            messageOkBtn.parentNode.replaceChild(newOkBtn, messageOkBtn); 
+            messageOkBtn = newOkBtn; 
+            messageOkBtn.onclick = () => {
+                messageModal.style.display = 'none';
+                unlockInput();
+                if (callback) callback();
+            };
+        }
+        
+        function showTemporaryMessage(text, duration, callback) {
+            return new Promise(resolve => {
+                lockInput();
+                tempMessageOverlay.textContent = text;
+                tempMessageOverlay.classList.add('visible');
+                setTimeout(() => {
+                    tempMessageOverlay.classList.remove('visible');
+                    unlockInput();
+                    if (callback) callback();
+                    resolve();
+                }, duration);
+            });
+        }
+
+        function resizeCanvas() {
+            const container = document.getElementById('game-screen');
+            if(container) {
+                canvas.width = container.clientWidth;
+                canvas.height = container.clientHeight;
+            }
+        }
+
+        function showQuizContainer(show) {
+            const quizHeight = quizContainer.offsetHeight || 200; 
+            if (show) {
+                quizContainer.style.display = 'flex';
+                fixedButtonsContainer.style.bottom = `${quizContainer.getBoundingClientRect().height + 15}px`;
+            } else {
+                quizContainer.style.display = 'none';
+                fixedButtonsContainer.style.bottom = '15px';
+            }
+        }
+
+        function updateStatus() {
+            document.getElementById('status-name').textContent = gameState.player.name;
+            document.getElementById('status-level').textContent = gameState.player.level;
+            document.getElementById('status-lives').textContent = '❤️'.repeat(gameState.lives);
+            ultimateSkillBtn.classList.toggle('disabled', gameState.hasUsedUltimate);
+            updateProgressDisplay();
+        }
+        
+        function updateProgressDisplay() {
+            let progressText = ``;
+            if (gameState.difficulty === '도전자') {
+                progressText = `점수: ${gameState.score}`;
+            } else {
+                const bossThresholds = { '하': 5, '중': 8, '상': 10 };
+                const needed = bossThresholds[gameState.difficulty];
+                const remaining = Math.max(0, needed - gameState.questionsCorrect);
+                progressText = `정답: ${gameState.questionsCorrect}`;
+                if (!gameState.isBossFight && !gameState.clearedStages[gameState.difficulty]) {
+                    progressText += ` | 보스까지: ${remaining}문제`;
+                }
+            }
+            progressDisplay.textContent = progressText;
+        }
+
+        // ==================================================================
+        // 이벤트 리스너 통합 설정
+        // ==================================================================
+        function setupEventListeners() {
+            document.getElementById('story-screen').addEventListener('click', () => { showScreen('start-screen'); });
+            document.getElementById('go-login-btn').addEventListener('click', () => { initAndPlayBGM(); showScreen('login-screen'); });
+            document.getElementById('login-back-btn').addEventListener('click', () => { showScreen('start-screen'); });
+            document.getElementById('ranking-btn').addEventListener('click', openRankingScreen);
+            document.getElementById('close-ranking-btn').addEventListener('click', () => showScreen('start-screen'));
+
+            document.getElementById('do-login-btn').addEventListener('click', async () => {
+                const nick = document.getElementById('login-nickname').value.trim();
+                const pw = document.getElementById('login-password').value.trim();
+                if (!nick || !pw) { showMessage("닉네임과 비밀번호를 모두 입력해주세요."); return; }
+
+                showMessage("로그인 중...");
+                const res = await fetchAPI('login', { nickname: nick, password: pw });
+                if (res.error) { showMessage(res.error); } else { applyLoginData(res); }
+            });
+
+            document.getElementById('do-register-btn').addEventListener('click', async () => {
+                const nick = document.getElementById('login-nickname').value.trim();
+                const pw = document.getElementById('login-password').value.trim();
+                if (!nick || !pw) { showMessage("닉네임과 비밀번호를 모두 입력해주세요."); return; }
+
+                showMessage("회원가입 중...");
+                const res = await fetchAPI('register', { nickname: nick, password: pw });
+                if (res.error) { showMessage(res.error); } else { applyLoginData(res); }
+            });
+
+            document.getElementById('search-ranking-btn').addEventListener('click', async () => {
+                const nickname = document.getElementById('search-nickname').value.trim();
+                if (!nickname) return;
+                const resArea = document.getElementById('search-result-area');
+                resArea.innerHTML = "서버에서 검색 중...";
+                const res = await fetchAPI('searchRanking', { nickname: nickname });
+                if (res.error || !res.searchResult) {
+                    resArea.innerHTML = `<span style="color:var(--danger-color);">해당 닉네임의 기록을 찾을 수 없습니다.</span>`;
+                } else {
+                    resArea.innerHTML = `<span style="color:var(--success-color);">[검색 결과]</span> <b>${res.searchResult.data.nickname}</b>님은 현재 <b>${res.searchResult.rank}위</b> (점수: ${res.searchResult.data.score}점) 입니다!`;
+                }
+            });
+
+            document.querySelectorAll('#character-selection-screen .char-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    document.querySelectorAll('#character-selection-screen .char-card').forEach(c => c.classList.remove('selected'));
+                    card.classList.add('selected');
+                });
+            });
+
+            document.getElementById('confirm-character-btn').addEventListener('click', () => {
+                const selected = document.querySelector('#character-selection-screen .char-card.selected');
+                if (!selected) { showMessage("캐릭터를 선택해주세요."); return; }
+                gameState.player.class = selected.dataset.class;
+                gameState.player.gender = selected.dataset.gender;
+                gameState.player.imageKey = `${gameState.player.class}_${gameState.player.gender}`;
+                saveGame(false); 
+                setupDifficultyScreen();
+            });
+
+            document.getElementById('admin-level-apply').addEventListener('click', () => {
+                gameState.player.level = parseInt(document.getElementById('admin-level-select').value);
+                setupDifficultyScreen();
+                showMessage(`관리자 권한: 강제로 레벨이 ${gameState.player.level} (으)로 변경되었습니다.`);
+            });
+
+            document.getElementById('difficulty-options').addEventListener('click', (e) => {
+                const btn = e.target.closest('.difficulty-btn');
+                if (btn && !btn.classList.contains('disabled')) { startGame(btn.dataset.difficulty); }
+            });
+
+            document.getElementById('save-game-btn').addEventListener('click', () => saveGame(true));
+            document.getElementById('change-character-btn').addEventListener('click', () => {
+                document.getElementById('display-nickname-char-select').textContent = gameState.player.name;
+                showScreen('character-selection-screen');
+            });
+
+            document.getElementById('back-to-difficulty-btn').addEventListener('click', () => { saveGame(false); setupDifficultyScreen(); });
+            document.getElementById('ultimate-skill-btn').addEventListener('click', handleUltimateSkill);
+
+            document.getElementById('q1-options').addEventListener('click', (e) => { 
+                if (e.target.matches('.quiz-btn')) handleQ1Answer(e.target.dataset.answer); 
+            });
+            document.getElementById('q2-options').addEventListener('click', (e) => {
+                const target = e.target.closest('.q2-btn');
+                if (target) handleQ2Answer(target.dataset.answerIndex);
+            });
+
+            document.getElementById('ingame-change-char-btn').addEventListener('click', () => { document.getElementById('ingame-char-change-modal').style.display = 'flex'; });
+            document.getElementById('cancel-ingame-char-change-btn').addEventListener('click', () => { document.getElementById('ingame-char-change-modal').style.display = 'none'; });
+            
+            document.querySelectorAll('#ingame-char-change-modal .char-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    document.querySelectorAll('#ingame-char-change-modal .char-card').forEach(c => c.classList.remove('selected'));
+                    card.classList.add('selected');
+                });
+            });
+            
+            document.getElementById('confirm-ingame-char-change-btn').addEventListener('click', () => {
+                const selected = document.querySelector('#ingame-char-change-modal .char-card.selected');
+                if(selected) {
+                    gameState.player.class = selected.dataset.class;
+                    gameState.player.gender = selected.dataset.gender;
+                    gameState.player.imageKey = `${gameState.player.class}_${gameState.player.gender}`;
+                    document.getElementById('ingame-char-change-modal').style.display = 'none';
+                    updateStatus();
+                    unlockInput();
+                } else { showMessage("변경할 캐릭터를 선택해주세요."); }
+            });
+
+            document.getElementById('instructions-btn').addEventListener('click', () => { document.getElementById('instructions-modal').style.display = 'flex'; });
+            document.getElementById('instructions-close-btn').addEventListener('click', () => { document.getElementById('instructions-modal').style.display = 'none'; });
+
+            document.getElementById('force-continue-btn').addEventListener('click', () => {
+                if (gameState.animation && typeof gameState.animation.onEnd === 'function') {
+                    clearAnimation();
+                } else {
+                    showQuizContainer(false);
+                    monsterInfoDisplay.style.display = 'none';
+                    if (gameState.lives > 0) prepareNextEncounter(); else startGameOverAnimation();
+                }
+                unlockInput();
+            });
+
+            document.getElementById('game-screen').addEventListener('click', (e) => { if (e.target.id === 'game-canvas') skipCurrentEvent(); });
+        }
+
+        // 로그인 데이터 적용 함수
+        function applyLoginData(res) {
+            resetGameState();
+            Object.assign(gameState.player, { name: res.nickname, class: res.class, gender: res.gender, level: res.level });
+            if(res.class) gameState.player.imageKey = `${res.class}_${res.gender}`;
+            gameState.score = res.score || 0;
+            gameState.clearedStages = res.clearedStages;
+            gameState.isChallengeUnlocked = res.isChallengeUnlocked;
+            gameState.isAdmin = res.isAdmin;
+
+            if (res.isAdmin) {
+                showMessage("환영합니다. 관리자님!<br>모든 기능과 레벨 테스트가 해금되었습니다.", setupDifficultyScreen);
+            } else if (res.isNew) {
+                showMessage(`가입은 되었으나 캐릭터가 없습니다.<br>캐릭터를 만들어주세요.`, () => {
+                    document.getElementById('display-nickname-char-select').textContent = res.nickname;
+                    showScreen('character-selection-screen');
+                });
+            } else {
+                showMessage(`'${res.nickname}'님 환영합니다!`, setupDifficultyScreen);
+            }
+        }
+
+        // ==================================================================
+        // 게임 진행 로직
+        // ==================================================================
+        function setupDifficultyScreen() {
+            const statusEl = document.getElementById('difficulty-char-status');
+            statusEl.innerHTML = `<h3>${gameState.player.name}</h3><p>LV. ${gameState.player.level} | 직업: ${gameState.player.class}</p>`;
+            
+            const adminPanel = document.getElementById('admin-panel');
+            if (gameState.isAdmin) {
+                adminPanel.style.display = 'block';
+                document.getElementById('admin-level-select').value = gameState.player.level;
+            } else { adminPanel.style.display = 'none'; }
+            
+            const optionsContainer = document.getElementById('difficulty-options');
+            optionsContainer.querySelectorAll('.difficulty-option:not(.challenge-option)').forEach(opt => {
+               const btn = opt.querySelector('.difficulty-btn');
+               const diff = btn.dataset.difficulty;
+               const isCleared = gameState.clearedStages[diff];
+               if(isCleared) {
+                   btn.textContent = `${diff} (클리어!)`;
+                   btn.classList.add('btn-success');
+               } else {
+                   btn.textContent = diff;
+                   btn.classList.remove('btn-success');
+               }
+               btn.classList.toggle('disabled', (diff === '중' && !gameState.clearedStages['하']) || (diff === '상' && !gameState.clearedStages['중']));
+            });
+            
+            const existingChallengeBtn = optionsContainer.querySelector('.challenge-option');
+            if (existingChallengeBtn) existingChallengeBtn.remove();
+
+            if (gameState.isChallengeUnlocked) {
+                const challengeOption = document.createElement('div');
+                challengeOption.className = 'difficulty-option challenge-option';
+                challengeOption.innerHTML = `<button class="btn btn-challenge difficulty-btn" data-difficulty="도전자">도전자</button><p class="difficulty-desc">최고 점수에 도전하세요!</p>`;
+                optionsContainer.appendChild(challengeOption);
+            }
+            showScreen('difficulty-selection-screen');
+        }
+
+        function startGame(difficulty) {
+            gameState.difficulty = difficulty;
+            gameState.usedQuizIds = [];
+            gameState.isBossFight = false;
+            gameState.bossStage = 0;
+            gameState.questionsCorrect = 0;
+            gameState.hasUsedUltimate = false;
+            gameState.lives = difficulty === '하' || difficulty === '중' ? 5 : 3;
+            if (difficulty === '도전자') gameState.score = 0;
+
+            monsterInfoDisplay.style.display = 'none';
+            updateStatus();
+            startDungeonAnimation();
+        }
+
+        function startDungeonAnimation() {
+            showScreen('game-screen');
+            if (!animationFrameId) gameLoop();
+            backgroundParticles = [];
+            
+            const onIntroEnd = () => {
+                const message = gameState.isBossFight ? "보스가 등장했다!" : "몬스터가 등장했습니다.";
+                showTemporaryMessage(message, 1000, spawnMonster);
+            };
+            startAnimation('dungeon-intro', 2000, onIntroEnd);
+            makeEventSkippable(onIntroEnd, 2000);
+        }
+
+        function makeEventSkippable(callback, duration) {
+            if (gameState.skippableTimeoutId) clearTimeout(gameState.skippableTimeoutId);
+            const onSkipCallback = () => {
+                if(gameState.isSkippable) { 
+                    gameState.isSkippable = false;
+                    clearTimeout(gameState.skippableTimeoutId);
+                    gameState.skippableTimeoutId = null;
+                    gameState.onSkip = null;
+                    clearAnimation();
+                    callback();
+                }
+            };
+            gameState.isSkippable = true;
+            gameState.onSkip = onSkipCallback;
+            gameState.skippableTimeoutId = setTimeout(onSkipCallback, duration);
+        }
+
+        function skipCurrentEvent() {
+            if (isInputLocked) return;
+            if (gameState.isSkippable && typeof gameState.onSkip === 'function') gameState.onSkip();
+        }
+
+        function spawnMonster() {
+            const difficulty = gameState.difficulty;
+            let monsterType;
+
+            if (gameState.isBossFight) {
+                monsterType = '보스';
+            } else if (difficulty === '도전자') {
+                const rand = Math.random();
+                if (rand < 0.4) monsterType = '중'; else if (rand < 0.8) monsterType = '상'; else monsterType = '보스';
+            } else {
+                const rand = Math.random() * 100;
+                if (difficulty === '하') {
+                    if (rand < 65) monsterType = '하'; else if (rand < 90) monsterType = '중'; else monsterType = '상';
+                } else if (difficulty === '중') {
+                    if (rand < 50) monsterType = '하'; else if (rand < 85) monsterType = '중'; else monsterType = '상';
+                } else { 
+                    if (rand < 40) monsterType = '하'; else if (rand < 70) monsterType = '중'; else monsterType = '상';
+                }
+            }
+            gameState.currentMonster = { type: monsterType, imageKey: monsterType, hitProgress: 0, alpha: 1 };
+            startQuiz();
+        }
+
+        function startQuiz() {
+            let quizDifficulty;
+            if (gameState.difficulty === '도전자') {
+                const rand = Math.random();
+                if (rand < 0.4) quizDifficulty = '중'; else if (rand < 0.8) quizDifficulty = '상'; else quizDifficulty = '최상';
+            } else if (gameState.isBossFight) {
+                quizDifficulty = gameState.difficulty === '하' ? '상' : '최상';
+            } else {
+                quizDifficulty = gameState.currentMonster.type;
+            }
+
+            monsterInfoDisplay.innerHTML = `몬스터 등급: ${gameState.currentMonster.type}<br>문제 난이도: ${quizDifficulty}`;
+            monsterInfoDisplay.style.display = 'block';
+
+            const availableQuizzes = quizzes.filter(q => q.difficulty === quizDifficulty && !gameState.usedQuizIds.includes(q.id));
+
+            if (availableQuizzes.length === 0) {
+                const quizzesOfDifficulty = quizzes.filter(q => q.difficulty === quizDifficulty).map(q => q.id);
+                gameState.usedQuizIds = gameState.usedQuizIds.filter(id => !quizzesOfDifficulty.includes(id));
+                const newAvailableQuizzes = quizzes.filter(q => q.difficulty === quizDifficulty && !gameState.usedQuizIds.includes(q.id));
+                if(newAvailableQuizzes.length === 0) {
+                    showMessage(`이 난이도의 모든 문제를 정복했습니다!`, prepareNextEncounter);
+                    return;
+                }
+                gameState.currentQuiz = newAvailableQuizzes[Math.floor(Math.random() * newAvailableQuizzes.length)];
+            } else {
+                gameState.currentQuiz = availableQuizzes[Math.floor(Math.random() * availableQuizzes.length)];
+            }
+            gameState.usedQuizIds.push(gameState.currentQuiz.id);
+            displayQuiz();
+        }
+
+        function displayQuiz() {
+            const quiz = gameState.currentQuiz;
+            q2OptionsEl.innerHTML = '';
+            
+            if (quiz.type === 'single') {
+                quizCaseEl.innerHTML = `[문제]<br>${quiz.case}`;
+                q1OptionsEl.style.display = 'none';
+                q2OptionsEl.style.display = 'flex';
+                quiz.q2.forEach((option, index) => {
+                    const btn = document.createElement('button');
+                    btn.classList.add('btn', 'quiz-btn', 'q2-btn');
+                    btn.innerHTML = `${index + 1}. ${option}`;
+                    btn.dataset.answerIndex = index;
+                    q2OptionsEl.appendChild(btn);
+                });
+            } else { 
+                quizCaseEl.innerHTML = `[O/X 문제]<br>${quiz.case}`;
+                q1OptionsEl.style.display = 'flex';
+                q2OptionsEl.style.display = 'none';
+            }
+            showQuizContainer(true);
+            unlockInput();
+        }
+        
+        function displayQ2ForTwoStep() {
+            const quiz = gameState.currentQuiz;
+            q2OptionsEl.innerHTML = ''; 
+            const q2Question = quiz.q2_question || "위 O/X 판단에 대한 근거로 가장 적절한 것을 고르시오.";
+            quizCaseEl.innerHTML = `<b>[심화 문제]</b><br>${q2Question}`;
+            q1OptionsEl.style.display = 'none';
+            q2OptionsEl.style.display = 'flex';
+            
+            quiz.q2.forEach((option, index) => {
+                const btn = document.createElement('button');
+                btn.classList.add('btn', 'quiz-btn', 'q2-btn');
+                btn.innerHTML = `${index + 1}. ${option}`;
+                btn.dataset.answerIndex = index;
+                q2OptionsEl.appendChild(btn);
+            });
+            unlockInput();
+        }
+
+        function handleQ1Answer(answer) {
+            if (isInputLocked) return;
+            lockInput();
+            const quiz = gameState.currentQuiz;
+            if (answer === quiz.q1) {
+                if (quiz.type === 'two-step') displayQ2ForTwoStep(); else handleCorrectAnswer();
+            } else {
+                handleIncorrectAnswer();
+            }
+        }
+
+        function handleQ2Answer(index) {
+            if (isInputLocked) return;
+            lockInput();
+            if (index == gameState.currentQuiz.answerIndex) handleCorrectAnswer(); else handleIncorrectAnswer();
+        }
+        
+        async function handleUltimateSkill() {
+            if (isInputLocked || gameState.hasUsedUltimate) return;
+            if (gameState.isBossFight && gameState.difficulty !== '도전자') {
+                showMessage("보스에게는 궁극기를 사용할 수 없습니다.");
+                return;
+            }
+
+            lockInput();
+            gameState.hasUsedUltimate = true;
+            updateStatus();
+            showQuizContainer(false);
+            monsterInfoDisplay.style.display = 'none';
+            
+            const skillName = ultimateSkillNames[gameState.player.class][gameState.player.level];
+            await showTemporaryMessage(skillName, 1500);
+
+            startAnimation('ultimate-attack', 4000, () => {
+                showTemporaryMessage("궁극의 기술로 몬스터를 물리쳤다!", 1500, () => {
+                    const quiz = gameState.currentQuiz;
+                    const explanationText = `<b>[문제: ${quiz.case}]</b><br><br><b>정답 해설:</b><br>${quiz.explanation || "해설 정보가 없습니다."}`;
+                    showMessage(explanationText, prepareNextEncounter);
+                });
+            });
+        }
+
+        function handleCorrectAnswer() {
+           if (gameState.difficulty === '도전자') {
+                const scoreMap = {'하': 10, '중': 20, '상': 30, '보스': 50, '최상': 50};
+                gameState.score += scoreMap[gameState.currentQuiz.difficulty] || 20;
+                if (gameState.score >= 200 && gameState.player.level < 5) {
+                    gameState.player.level = 5;
+                    showTemporaryMessage("레벨 5 달성! 파멸적인 힘이 느껴진다!", 2000);
+                }
+           }
+            gameState.questionsCorrect++;
+            updateStatus();
+            showQuizContainer(false);
+            monsterInfoDisplay.style.display = 'none';
+            
+            startAnimation('attack', 1500, () => {
+                let message = "몬스터를 물리쳤다!";
+                if(gameState.isBossFight) {
+                    if (gameState.difficulty === '하' || gameState.difficulty === '중') {
+                        message = "대단하군 용사여.. 두고보자!";
+                    } else if (gameState.difficulty === '상') {
+                        if (gameState.bossStage === 0) {
+                            gameState.bossStage = 1;
+                            showTemporaryMessage("아직 쓰러지지 않는다. 다시 덤비거라 용사여!", 1500, spawnMonster);
+                            return;
+                        } else {
+                            message = "정말 대단하구나... 나의 패배를 인정한다...";
+                        }
+                    }
+                }
+                showTemporaryMessage(message, 1500, () => {
+                    if (gameState.isBossFight) handleStageClear(); else prepareNextEncounter();
+                });
+            });
+        }
+        
+        function handleIncorrectAnswer() {
+            showQuizContainer(false);
+            monsterInfoDisplay.style.display = 'none';
+            gameState.lives--;
+            updateStatus();
+            
+            startAnimation('monster-attack', 1200, () => {
+                showTemporaryMessage("몬스터의 공격을 막지 못했다!", 1200, () => {
+                    const quiz = gameState.currentQuiz;
+                    let explanationText = `<b>오답입니다!</b><br><br><b>정답 해설:</b><br>${quiz.explanation || "해설 정보가 없습니다."}`;
+                    const nextAction = () => {
+                        if (gameState.lives <= 0) {
+                           if (gameState.difficulty === '도전자') showChallengeResult(); else startGameOverAnimation();
+                        } else { startDungeonAnimation(); }
+                    };
+                    showMessage(explanationText, nextAction);
+                });
+            });
+        }
+
+        function startGameOverAnimation() {
+            gameOverDebris = [];
+            for(let i=0; i<50; i++) {
+                gameOverDebris.push({
+                    x: Math.random() * canvas.width, y: -Math.random() * canvas.height,
+                    width: Math.random() * 40 + 20, height: Math.random() * 30 + 15,
+                    vx: (Math.random() - 0.5) * 5, vy: Math.random() * 5 + 2,
+                    rotation: 0, vr: (Math.random() - 0.5) * 0.1,
+                    color: `rgb(${100 + Math.random()*30}, ${90 + Math.random()*30}, ${90 + Math.random()*30})`
+                });
+            }
+            startAnimation('game-over', 2500, () => { showMessage("GAME OVER", setupDifficultyScreen); });
+        }
+        
+        function prepareNextEncounter() {
+            clearAnimation();
+            unlockInput();
+
+            if (gameState.difficulty !== '도전자' && Math.random() < 0.3) {
+                if (gameState.difficulty === '상') gameState.lives = Math.min(3, gameState.lives + 1);
+                else gameState.lives = Math.min(5, gameState.lives + 1);
+            }
+            updateStatus();
+
+            if (gameState.difficulty === '도전자') { startDungeonAnimation(); return; }
+
+            const bossThresholds = { '하': 5, '중': 8, '상': 10 };
+            const correctAnswers = gameState.questionsCorrect;
+            let bossConditionMet = correctAnswers >= bossThresholds[gameState.difficulty];
+            
+            if (bossConditionMet) {
+                gameState.isBossFight = true;
+                gameState.bossStage = 0;
+                startDungeonAnimation();
+            } else { startDungeonAnimation(); }
+        }
+        
+        function handleStageClear() {
+            gameState.clearedStages[gameState.difficulty] = true;
+            if (gameState.player.level < 4) { gameState.player.level++; }
+            
+            effectParticles = [];
+            for (let i = 0; i < 150; i++) {
+                effectParticles.push({
+                    type: 'confetti', x: Math.random() * canvas.width, y: Math.random() * -canvas.height,
+                    vx: Math.random() * 6 - 3, vy: Math.random() * 5 + 3,
+                    size: Math.random() * 10 + 5, color: `hsl(${Math.random() * 360}, 100%, 70%)`,
+                    rotation: Math.random() * 360, life: 1
+                });
+            }
+            
+            startAnimation('game-clear', 3000, () => {
+                if (gameState.clearedStages['하'] && gameState.clearedStages['중'] && gameState.clearedStages['상']) {
+                    gameState.isChallengeUnlocked = true;
+                    gameState.player.level = 4;
+                    startGrandFinale();
+                } else {
+                    saveGame(false);
+                    showMessage(`난이도 '${gameState.difficulty}' 클리어!<br>레벨 업! (현재 LV.${gameState.player.level})`, setupDifficultyScreen);
+                }
+            });
+        }
+
+        function startGrandFinale() {
+            effectParticles = [];
+            for (let i = 0; i < 200; i++) {
+                effectParticles.push({
+                    type: 'confetti', x: Math.random() * canvas.width, y: Math.random() * -canvas.height,
+                    vx: Math.random() * 6 - 3, vy: Math.random() * 5 + 3,
+                    size: Math.random() * 10 + 5, color: `hsl(${Math.random() * 360}, 100%, 70%)`,
+                    rotation: Math.random() * 360, life: 1
+                });
+            }
+            startAnimation('grand-finale', 6000, () => {
+                saveGame(false);
+                showMessage("지식의 서를 얻고 세상의 모든 지식을 손에 넣었습니다. 축하합니다!", setupDifficultyScreen);
+            });
+        }
+
+        function showChallengeResult() {
+           saveGame(false);
+           let resultText = `
+               <h2>도전 결과</h2>
+               <p><b>${gameState.player.name}</b>님의 최종 점수는 <b>${gameState.score}점</b> 입니다!</p>
+               <p>방금 기록이 명예의 전당(서버)에 기록되었습니다.</p>
+               <div class="capture-guide">
+                   <h4>결과 화면 캡처 안내</h4>
+                   <ul>
+                       <li><b>📱 아이폰:</b> 측면 버튼 + 음량 높이기 버튼 동시 누르기</li>
+                       <li><b>📱 안드로이드:</b> 전원 버튼 + 음량 낮추기 버튼 동시 누르기</li>
+                       <li><b>💻 윈도우:</b> 윈도우 키 + Shift + S</li>
+                       <li><b>💻 맥:</b> Shift + Command + 4</li>
+                   </ul>
+               </div>
+           `;
+           showMessage(resultText, setupDifficultyScreen);
+        }
+
+        // ==================================================================
+        // 렌더링(그리기) 파트 
+        // ==================================================================
+        function drawDungeonBackground(deltaTime) {
+            const difficulty = gameState.difficulty;
+            const isBoss = gameState.isBossFight;
+            let grad1 = '#2c2a4a', grad2 = '#1a1832', wall = '#33304a';
+
+            if (isBoss || difficulty === '도전자') {
+                grad1 = '#4d1a1a'; grad2 = '#2e0e0e'; wall = '#3d1a1a';
+            } else if (difficulty === '상') {
+                grad1 = '#4a2a4a'; grad2 = '#3b1b3b'; wall = '#402040';
+            } else if (difficulty === '중') {
+                grad1 = '#3a3a4a'; grad2 = '#2a2a3b'; wall = '#303040';
+            }
+            
+            const bgGrad = ctx.createLinearGradient(0, 0, 0, canvas.height);
+            bgGrad.addColorStop(0, grad1);
+            bgGrad.addColorStop(0.6, grad2);
+            bgGrad.addColorStop(1, '#000');
+            ctx.fillStyle = bgGrad;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            if (difficulty === '중' || difficulty === '상' || isBoss || difficulty === '도전자') {
+                 if (Math.random() < 0.05) {
+                   backgroundParticles.push({ type: 'dust', x: Math.random() * canvas.width, y: 0, vx: (Math.random() - 0.5) * 0.5, vy: Math.random() * 0.5 + 0.2, life: 1, size: Math.random() * 2 + 1 });
+                 }
+            }
+            if (difficulty === '상' || isBoss || difficulty === '도전자') {
+                 if (Math.random() < 0.03) {
+                   backgroundParticles.push({ type: 'ghost', x: Math.random() * canvas.width, y: Math.random() * canvas.height * 0.6, life: 1, opacity: 0, maxOpacity: Math.random() * 0.2 + 0.1 });
+                 }
+            }
+            if (isBoss || difficulty === '도전자') {
+                 if (Math.random() < 0.3) {
+                   backgroundParticles.push({ type: 'lava_bubble', x: Math.random() * canvas.width, y: canvas.height, radius: Math.random() * 20 + 5, life: 1, speed: Math.random() * 1 + 0.5 });
+                 }
+                 if (Math.random() < 0.1) {
+                   backgroundParticles.push({ type: 'ember', x: Math.random() * canvas.width, y: canvas.height, vx: (Math.random() - 0.5), vy: -(Math.random() * 3 + 2), life: 1, size: Math.random() * 3 + 1 });
+                 }
+            }
+
+            updateAndDrawBackgroundParticles(deltaTime);
+
+            ctx.strokeStyle = wall;
+            ctx.lineWidth = 2;
+            ctx.globalAlpha = 0.3;
+            for(let y = 0; y < canvas.height; y += 40) {
+                for(let x = (y/40 % 2) * -20; x < canvas.width; x += 40) {
+                    ctx.strokeRect(x, y, 40, 40);
+                }
+            }
+            ctx.globalAlpha = 1.0;
+            
+            drawPlatforms();
+
+            if (isBoss || difficulty === '도전자') {
+                drawLava(deltaTime);
+            }
+        }
+        
+        function drawPlatforms() {
+            const platformHeight = canvas.height * 0.8;
+            const platformThickness = 40;
+            const pPlatformWidth = canvas.width * 0.4;
+            const pPlatformX = canvas.width * 0.1;
+            drawStonePlatform(pPlatformX, platformHeight, pPlatformWidth, platformThickness);
+            const mPlatformWidth = canvas.width * 0.4;
+            const mPlatformX = canvas.width * 0.9 - mPlatformWidth;
+            drawStonePlatform(mPlatformX, platformHeight, mPlatformWidth, platformThickness);
+        }
+
+        function drawStonePlatform(x, y, width, height) {
+            ctx.fillStyle = '#4a4a5a';
+            ctx.fillRect(x, y, width, height);
+            ctx.fillStyle = '#6b6b7b';
+            ctx.fillRect(x, y, width, 5);
+            ctx.fillStyle = '#3a3a4a';
+            ctx.fillRect(x, y + 5, width, height - 5);
+            ctx.strokeStyle = '#2a2a3a';
+            ctx.lineWidth = 2;
+            for(let i = 0; i < width / 50; i++) {
+                const crackX = x + Math.random() * width;
+                const crackY = y + 5 + Math.random() * (height - 10);
+                ctx.beginPath();
+                ctx.moveTo(crackX, crackY);
+                ctx.lineTo(crackX + (Math.random() - 0.5) * 20, crackY + (Math.random() - 0.5) * 20);
+                ctx.stroke();
+            }
+        }
+
+        function updateAndDrawBackgroundParticles(deltaTime) {
+            backgroundParticles.forEach((p, i) => {
+                p.life -= 0.0005 * deltaTime;
+                if (p.life <= 0) { backgroundParticles.splice(i, 1); return; }
+
+                ctx.save();
+                if (p.type === 'dust') {
+                    p.x += p.vx; p.y += p.vy;
+                    ctx.fillStyle = `rgba(200, 200, 200, ${p.life * 0.5})`;
+                    ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2); ctx.fill();
+                } else if (p.type === 'ghost') {
+                    p.x += Math.sin(p.life * 5) * 0.5;
+                    p.y += Math.cos(p.life * 3) * 0.5;
+                    if (p.life > 0.5) p.opacity = Math.min(p.maxOpacity, p.opacity + 0.01);
+                    else p.opacity = Math.max(0, p.opacity - 0.01);
+                    ctx.fillStyle = `rgba(230, 230, 255, ${p.opacity})`;
+                    ctx.font = "40px 'MedievalSharp'";
+                    ctx.fillText('👻', p.x, p.y);
+                } else if (p.type === 'lava_bubble') {
+                    p.y -= p.speed;
+                    p.radius *= 0.99;
+                    if (p.y < canvas.height * 0.8) p.life = 0;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(255, 255, 0, ${p.life * 0.7})`;
+                    ctx.fill();
+                } else if (p.type === 'ember') {
+                    p.x += p.vx; p.y += p.vy;
+                    p.vy += 0.05; 
+                    ctx.fillStyle = `rgba(255, 100, 0, ${p.life})`;
+                    ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2); ctx.fill();
+                }
+                ctx.restore();
+            });
+        }
+
+        function drawLava(deltaTime) {
+            const lavaY = canvas.height * 0.8;
+            const grad = ctx.createLinearGradient(0, lavaY, 0, canvas.height);
+            grad.addColorStop(0, '#ff8c00');
+            grad.addColorStop(0.5, '#ff4500');
+            grad.addColorStop(1, '#8b0000');
+            ctx.fillStyle = grad;
+            ctx.beginPath();
+            ctx.moveTo(0, lavaY);
+            for (let x = 0; x <= canvas.width; x += 20) {
+                const yOffset = Math.sin(x / 50 + Date.now() / 500) * 10;
+                ctx.lineTo(x, lavaY + yOffset);
+            }
+            ctx.lineTo(canvas.width, canvas.height);
+            ctx.lineTo(0, canvas.height);
+            ctx.closePath();
+            ctx.fill();
+        }
+
+        function drawCharacter(bobbing) {
+            const img = loadedImages[gameState.player.imageKey];
+            if (!img) return;
+
+            const anim = gameState.animation;
+            let size = Math.min(canvas.width, canvas.height) * 0.25;
+            let yOffset = bobbing ? Math.sin(Date.now() / 200) * 5 : 0;
+            let xPos = canvas.width * 0.25 - size / 2;
+            let yPos = canvas.height * 0.8 - size;
+            let alpha = 1.0;
+            
+            if (anim.type === 'monster-attack') {
+                const progress = anim.progress / anim.duration;
+                if (progress > 0.4 && progress < 0.7) { 
+                    const shakeProgress = Math.sin((progress - 0.4) / 0.3 * Math.PI);
+                    xPos += (Math.random() - 0.5) * 20 * shakeProgress;
+                    yPos += (Math.random() - 0.5) * 10 * shakeProgress;
+                }
+            } else if (anim.type === 'grand-finale') {
+               size = Math.min(canvas.width, canvas.height) * 0.35;
+               xPos = canvas.width / 2 - size / 2;
+               yPos = canvas.height * 0.5 - size;
+               yOffset += Math.abs(Math.sin(Date.now() / 200) * -15);
+            }
+            
+            ctx.save();
+            ctx.globalAlpha = alpha;
+            ctx.drawImage(img, xPos, yPos + yOffset, size, size);
+            ctx.restore();
+        }
+
+        function drawMonster() {
+            if (gameState.currentMonster && gameState.currentMonster.imageKey) {
+                const img = loadedImages[gameState.currentMonster.imageKey];
+                if (img) {
+                    const anim = gameState.animation;
+                    const monster = gameState.currentMonster;
+                    const size = Math.min(canvas.width, canvas.height) * 0.3;
+                    let x = canvas.width * 0.75 - size / 2;
+                    let y = canvas.height * 0.8 - size;
+                    
+                    if (anim.type === 'attack' || anim.type === 'ultimate-attack') {
+                        const progress = anim.progress / anim.duration;
+                        const shakeProgress = Math.sin(progress * Math.PI);
+                        x += (Math.random() - 0.5) * 15 * shakeProgress;
+                        y += (Math.random() - 0.5) * 15 * shakeProgress;
+                    } else if (anim.type === 'monster-attack') {
+                        const progress = anim.progress / anim.duration;
+                        const lungeProgress = Math.sin(progress * Math.PI);
+                        x -= lungeProgress * 100;
+                    }
+                    
+                    ctx.save();
+                    ctx.globalAlpha = monster.alpha;
+                    ctx.drawImage(img, x, y, size, size);
+                    ctx.restore();
+                }
+            }
+        }
+        
+        function drawEffects(deltaTime) {
+            if (gameState.animation.type === 'attack') {
+                drawNormalAttack();
+            }
+            else if (gameState.animation.type === 'ultimate-attack') {
+                drawUltimateAttack();
+            }
+            else if (gameState.animation.type === 'monster-attack') {
+                const progress = gameState.animation.progress / gameState.animation.duration;
+                if (progress > 0.4 && progress < 0.7) {
+                    const playerX = canvas.width * 0.25;
+                    const playerY = canvas.height * 0.8 - (Math.min(canvas.width, canvas.height) * 0.25) / 2;
+                    drawImpactEffect(playerX, playerY, progress);
+                }
+            }
+            else if (gameState.animation.type === 'grand-finale' || gameState.animation.type === 'game-clear') {
+                drawConfetti(deltaTime);
+                if(gameState.animation.type === 'grand-finale') {
+                    drawBowingMonsters();
+                    drawKnowledgeBook();
+                }
+            }
+            
+            updateAndDrawMiscParticles(deltaTime);
+        }
+
+        function drawImpactEffect(x, y, progress) {
+            const p = Math.sin((progress - 0.4) / 0.3 * Math.PI);
+            const size = 150 * p;
+            ctx.save();
+            ctx.translate(x, y);
+            ctx.strokeStyle = `rgba(255, 220, 0, ${1-p})`;
+            ctx.lineWidth = 10 * (1-p);
+            for(let i = 0; i < 8; i++) {
+                const angle = (i / 8) * Math.PI * 2;
+                ctx.beginPath();
+                ctx.moveTo(0, 0);
+                ctx.lineTo(Math.cos(angle) * size, Math.sin(angle) * size);
+                ctx.stroke();
+            }
+            ctx.restore();
+        }
+        
+        function drawNormalAttack() {
+            const progress = Math.min(1, gameState.animation.progress / gameState.animation.duration);
+            const level = gameState.player.level;
+            const startX = canvas.width * 0.35;
+            const startY = canvas.height * 0.65;
+            const endX = canvas.width * 0.7;
+            const endY = canvas.height * 0.65;
+            
+            const shakeAmount = level * 2 * Math.sin(progress * Math.PI);
+            canvas.style.transform = `translate(${(Math.random() - 0.5) * shakeAmount}px, ${(Math.random() - 0.5) * shakeAmount}px)`;
+
+            if (gameState.player.class === '전사') {
+                if (level < 5) {
+                    const easeOutProgress = 1 - Math.pow(1 - progress, 4);
+                    const travelX = startX + (endX - startX) * easeOutProgress;
+                    const alpha = Math.sin(progress * Math.PI);
+
+                    if (level === 1) { 
+                        drawSharpSlash(travelX, startY, 100, 40, alpha, 'white', 'gray', 5, 5);
+                    } else if (level === 2) {
+                        drawSharpSlash(travelX, startY, 140, 70, alpha, '#ffdd00', '#ffdd00', 25, 10);
+                    } else if (level === 3) {
+                        const p1 = Math.sin(Math.min(1, progress / 0.7) * Math.PI);
+                        const p2 = Math.sin(Math.max(0, (progress - 0.3) / 0.7) * Math.PI);
+                        drawSharpSlash(endX, startY - 30, 180, 80, p1, '#ff8800', '#ff4400', 35, 15, -20);
+                        drawSharpSlash(endX, startY + 30, 180, 80, p2, '#ff8800', '#ff4400', 35, 15, 20);
+                    } else if (level === 4) {
+                        const p_main = Math.sin(Math.min(1, progress / 0.6) * Math.PI);
+                        const p_cross = Math.sin(Math.max(0, (progress-0.4)/0.6) * Math.PI);
+                        
+                        ctx.fillStyle = `rgba(255, 255, 255, ${p_main * 0.2})`;
+                        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                        ctx.save();
+                        ctx.translate(endX, startY);
+                        drawSharpSlash(0, 0, 300, 150, p_main, 'cyan', 'white', 60, 30, 45);
+                        drawSharpSlash(0, 0, 300, 150, p_cross, 'red', 'white', 60, 20, -45);
+                        ctx.restore();
+                    }
+                } else { // Level 5
+                    const slashProgress = Math.min(1, progress / 0.6);
+                    const vortexProgress = Math.max(0, (progress - 0.5) / 0.5);
+                    const p = Math.sin(slashProgress * Math.PI);
+                    
+                    ctx.fillStyle = `rgba(0, 0, 0, ${p * 0.5})`; 
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                    if (slashProgress > 0) {
+                        drawDimensionalSlash(endX, endY, 600 * p, `rgba(26, 26, 40, ${p})`, `rgba(255, 50, 50, ${p})`);
+                    }
+                    if (vortexProgress > 0) {
+                        drawVortex(endX, endY, 250 * vortexProgress, vortexProgress, '#2c3e50', '#e74c3c');
+                    }
+                }
+            } else if (gameState.player.class === '마법사') {
+                const chargeProgress = Math.min(1, progress / 0.5);
+                const travelProgress = Math.max(0, (progress - 0.5) / 0.5);
+                const impactProgress = Math.max(0, (progress - 0.9) / 0.1);
+
+                const projectileX = startX + (endX - startX) * travelProgress;
+                const projectileY = startY;
+
+                if (level <= 3) {
+                    const currentX = startX + (endX - startX) * progress;
+                    const currentY = startY;
+                    if (level === 1) { 
+                        ctx.fillStyle = `rgba(173, 216, 230, ${1 - progress})`;
+                        ctx.shadowColor = 'cyan'; ctx.shadowBlur = 5;
+                        ctx.beginPath(); ctx.arc(currentX, currentY, 15, 0, Math.PI * 2); ctx.fill();
+                    } else if (level === 2) {
+                        if (Math.random() > 0.3) {
+                            effectParticles.push({ type: 'ice_shard', x: currentX, y: currentY, vx: 20, vy: (Math.random()-0.5)*5, life: 0.5, size: 25 });
+                        }
+                    } else { // Level 3
+                        if (progress > 0.1 && progress < 0.9 && Math.random() > 0.3) {
+                            effectParticles.push({ type: 'lightning', x: startX, y: startY, tx: endX, ty: endY, life: 0.5, color: '#f1c40f' });
+                        }
+                    }
+                } else if (level === 4) {
+                    drawMagicCircle(startX, startY, 70 * chargeProgress, '#e74c3c', `rgba(255, 100, 0, ${0.5 * chargeProgress})`);
+                    if (progress > 0.5) {
+                        drawMeteorProjectile(projectileX, projectileY, 70);
+                    }
+                    if (impactProgress > 0) {
+                        drawExplosion(endX, endY, 350 * impactProgress, '#ff4500', 'red');
+                        if (Math.random() < impactProgress * 3) {
+                             effectParticles.push({ type: 'secondary_explosion', x: endX + (Math.random()-0.5)*150, y: endY + (Math.random()-0.5)*150, life: 0.5, maxLife: 0.5, radius: 100 });
+                        }
+                    }
+                } else { // Level 5
+                    const colors = ['#e74c3c', '#3498db', '#f1c40f', '#2ecc71'];
+                    drawMagicCircle(startX, startY, 110 * chargeProgress, 'white', `rgba(255, 255, 255, ${0.3 * chargeProgress})`, colors);
+                    
+                    if (progress > 0.5) {
+                        colors.forEach((color, i) => {
+                            const angle = (i / colors.length) * Math.PI * 2 + progress * 15;
+                            const orbitX = projectileX + Math.cos(angle) * 50;
+                            const orbitY = projectileY + Math.sin(angle) * 50;
+                            drawElementProjectile(orbitX, orbitY, 35, color);
+                        });
+                    }
+                    if (impactProgress > 0) {
+                        ctx.fillStyle = `rgba(255, 255, 255, ${impactProgress * 0.4})`; 
+                        ctx.fillRect(0,0,canvas.width,canvas.height);
+
+                        colors.forEach(color => {
+                            const offsetX = (Math.random() - 0.5) * 150;
+                            const offsetY = (Math.random() - 0.5) * 150;
+                            drawExplosion(endX + offsetX, endY + offsetY, 250 * impactProgress, color, color);
+                            if (Math.random() < impactProgress * 4) {
+                                effectParticles.push({ type: 'secondary_explosion', x: endX + (Math.random()-0.5)*200, y: endY + (Math.random()-0.5)*200, life: 0.6, maxLife: 0.6, radius: 150, color: color });
+                            }
+                        });
+                    }
+                }
+            }
+            ctx.shadowBlur = 0;
+            if (progress >= 1) canvas.style.transform = 'none';
+        }
+        
+        function drawUltimateAttack() {
+            const progress = Math.min(1, gameState.animation.progress / gameState.animation.duration);
+            const level = gameState.player.level;
+
+            const darkness = level === 1 ? 0.4 : (level >= 4 ? 0.9 : 0.7);
+            ctx.fillStyle = `rgba(0,0,0, ${darkness * Math.sin(progress * Math.PI)})`;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            const shakeAmount = level * 5 * Math.sin(progress * Math.PI);
+            canvas.style.transform = `translate(${(Math.random() - 0.5) * shakeAmount}px, ${(Math.random() - 0.5) * shakeAmount}px)`;
+
+            if (gameState.player.class === '전사') {
+                if (level < 5) {
+                     if (level === 1) { 
+                         if (progress > 0.2 && progress < 0.7) drawRandomSlash(1, 200, 'white');
+                         if (progress > 0.7) drawFinalSlash(progress, 'white', 250);
+                     } else if (level === 2) {
+                         if (progress > 0.1 && progress < 0.8) drawRandomSlash(3, 260, '#ffdd00');
+                         if (progress > 0.8) drawFinalSlash(progress, '#ffdd00', 300);
+                     } else if (level === 3) {
+                         if (Math.random() < progress * 5) {
+                             const sx = Math.random() * canvas.width;
+                             const ex = sx + (Math.random() - 0.5) * 50;
+                             const ey = canvas.height * 0.8;
+                             effectParticles.push({ type: 'falling_weapon', sx: sx, sy: -50, ex: ex, ey: ey, life: 1, maxLife: 1, weapon: 'sword' });
+                         }
+                         if (progress > 0.1 && progress < 0.9) drawRandomSlash(5, 250, '#aaa');
+                         if (progress > 0.7) drawFinalSlash(progress, '#ff4400', 350, false, true);
+                     } else if (level === 4) {
+                         if (Math.random() < progress * 7) {
+                             const weaponTypes = ['sword', 'spear', 'arrow'];
+                             const weapon = weaponTypes[Math.floor(Math.random() * weaponTypes.length)];
+                             const sx = Math.random() * canvas.width;
+                             const ex = sx + (Math.random() - 0.5) * 100;
+                             const ey = canvas.height * 0.8;
+                             effectParticles.push({ type: 'falling_weapon', sx: sx, sy: -50, ex: ex, ey: ey, life: 1, maxLife: 1, weapon: weapon });
+                         }
+                         if (progress > 0.1 && progress < 0.9) drawRandomSlash(7, 350, 'cyan');
+                         if (progress > 0.6) drawFinalSlash(progress, 'cyan', 500, true, true);
+                     }
+                } else { // Lv 5: 카오스 엣지
+                    const p1 = Math.min(1, progress / 0.7);
+                    const p2 = Math.max(0, (progress - 0.5) / 0.5);
+                    const p3 = Math.max(0, (progress - 0.8) / 0.2);
+
+                    if (p1 > 0.1 && p1 < 0.95) {
+                        drawRandomSlash(12, 500, `hsl(${Math.random()*60 + 280}, 100%, 70%)`);
+                        if (Math.random() < p1 * 10) {
+                            const weaponTypes = ['sword', 'spear', 'axe', 'mace'];
+                            const weapon = weaponTypes[Math.floor(Math.random() * weaponTypes.length)];
+                            const sx = Math.random() > 0.5 ? -50 : canvas.width + 50;
+                            const sy = Math.random() * canvas.height;
+                            const ex = canvas.width / 2 + (Math.random() - 0.5) * 300;
+                            const ey = canvas.height / 2 + (Math.random() - 0.5) * 300;
+                            effectParticles.push({ type: 'flying_weapon', sx, sy, ex, ey, life: 0.5, maxLife: 0.5, weapon });
+                        }
+                    }
+                    
+                    drawJudgmentSword(p2, '#e74c3c', '#2c3e50');
+
+                    if (p3 > 0) {
+                        const slashP = Math.sin(p3 * Math.PI);
+                        drawDimensionalSlash(canvas.width / 2, canvas.height / 2, canvas.width * 2, `rgba(20, 20, 30, ${slashP})`, `rgba(200, 30, 30, ${slashP})`);
+                        drawVortex(canvas.width / 2, canvas.height / 2, canvas.width * p3 * 1.5, p3, '#1a1a2e', '#e94560');
+                        
+                        ctx.fillStyle = `rgba(255, 255, 255, ${slashP * 0.3})`;
+                        ctx.fillRect(0,0,canvas.width,canvas.height);
+                    }
+                }
+            } else if (gameState.player.class === '마법사') {
+                if (level <= 3) {
+                    const effects = [
+                        (p) => drawMeteorShower(p * 0.5), 
+                        drawIceRain,                      
+                        drawMultiLightning                
+                    ];
+                    effects[level - 1](progress);
+                } else if (level === 4) { 
+                    drawMeteorShower(progress);
+                    const finalMeteorProgress = Math.max(0, (progress - 0.7) / 0.3);
+                    if (finalMeteorProgress > 0) {
+                        drawFinalMeteor(finalMeteorProgress);
+                    }
+                } else { 
+                    drawGrandElemental(progress);
+                    const explosionProgress = Math.max(0, (progress - 0.8) / 0.2);
+                    if (explosionProgress > 0) {
+                        drawExplosion(canvas.width / 2, canvas.height / 2, canvas.width * explosionProgress, 'white', 'white');
+                        const colors = ['#e74c3c', '#3498db', '#f1c40f', '#2ecc71'];
+                        colors.forEach(color => {
+                             drawExplosion(canvas.width/2 + (Math.random()-0.5)*300, canvas.height/2 + (Math.random()-0.5)*300, 250 * explosionProgress, color, color);
+                        });
+                        ctx.fillStyle = `rgba(255, 255, 255, ${explosionProgress * 0.5})`;
+                        ctx.fillRect(0,0,canvas.width,canvas.height);
+                    }
+                }
+            }
+            
+            if (progress >= 1) {
+                canvas.style.transform = 'none';
+            }
+        }
+        
+        function drawDimensionalSlash(x, y, size, color, shadowColor) {
+            ctx.save();
+            ctx.strokeStyle = color;
+            ctx.lineWidth = size * 0.05 + 5;
+            ctx.shadowColor = shadowColor;
+            ctx.shadowBlur = size * 0.3;
+            
+            ctx.beginPath();
+            const angle = -10 * Math.PI / 180;
+            ctx.moveTo(x - size/2 * Math.cos(angle), y - size/2 * Math.sin(angle));
+            ctx.quadraticCurveTo(x, y, x + size/2 * Math.cos(angle), y + size/2 * Math.sin(angle));
+            ctx.stroke();
+
+            ctx.lineWidth = size * 0.02 + 2;
+            ctx.strokeStyle = 'white';
+            ctx.stroke();
+            ctx.restore();
+        }
+
+        function drawVortex(x, y, radius, progress, color1, color2) {
+            ctx.save();
+            ctx.translate(x, y);
+            const p = Math.sin(progress * Math.PI);
+            for (let i = 0; i < 80; i++) {
+                const angle = (Date.now() / 8 + i * 18) * 0.1;
+                const r = (i / 80) * radius * (1.2 - p);
+                const particleX = Math.cos(angle) * r;
+                const particleY = Math.sin(angle) * r;
+                const dist = (i / 80);
+                
+                ctx.fillStyle = i % 2 === 0 ? color1 : color2;
+                ctx.globalAlpha = (1 - dist) * p * 1.5;
+                ctx.beginPath();
+                ctx.arc(particleX, particleY, (1 - dist) * radius * 0.1, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            ctx.restore();
+        }
+
+        function drawRandomSlash(count, length = 200, color = 'white') {
+            for (let i = 0; i < count; i++) {
+                if (Math.random() > 0.7) {
+                    const x = Math.random() * canvas.width;
+                    const y = Math.random() * canvas.height;
+                    const angle = Math.random() * 360;
+                    const l = Math.random() * (length * 0.5) + (length * 0.5);
+                    drawSharpSlash(x, y, l, l/2, 1, color, color, 20, 10, angle);
+                }
+            }
+        }
+
+        function drawFinalSlash(progress, color, size, hasAura = false, isVertical = false) {
+            const p = (progress - (hasAura ? 0.6 : 0.8)) / (hasAura ? 0.4 : 0.2);
+            const alpha = Math.sin(p * Math.PI);
+            ctx.save();
+            ctx.translate(canvas.width / 2, canvas.height / 2);
+            if (hasAura) {
+                const auraSize = size * 1.2 * alpha;
+                const grad = ctx.createRadialGradient(0, 0, auraSize * 0.2, 0, 0, auraSize);
+                grad.addColorStop(0, `rgba(255, 255, 255, ${alpha * 0.8})`);
+                grad.addColorStop(0.5, `rgba(255, 255, 200, ${alpha * 0.5})`);
+                grad.addColorStop(1, `rgba(255, 100, 100, 0)`);
+                ctx.fillStyle = grad;
+                ctx.beginPath();
+                ctx.arc(0, 0, auraSize, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            const finalSlashSize = size * Math.min(1, p * 2);
+
+            if (isVertical) {
+                drawSharpSlash(0, 0, finalSlashSize * 1.5, finalSlashSize * 0.2, alpha, color, 'white', 50, 40, 90);
+                if (hasAura) {
+                    drawSharpSlash(0, 0, finalSlashSize * 1.5, finalSlashSize * 0.2, alpha, 'white', color, 50, 25, 0);
+                }
+            } else {
+                drawSharpSlash(0, 0, finalSlashSize * 1.5, finalSlashSize * 0.75, alpha, color, 'white', 50, 40, 45);
+                if (hasAura) {
+                    drawSharpSlash(0, 0, finalSlashSize * 1.5, finalSlashSize * 0.75, alpha, 'white', color, 50, 25, -45);
+                }
+            }
+            ctx.restore();
+        }
+
+        function drawJudgmentSword(progress, color1, color2) {
+            const p = Math.min(1, progress / 0.8);
+            if (p <= 0) return;
+
+            const fallProgress = Math.min(1, p / 0.7);
+            const impactProgress = Math.max(0, (p - 0.7) / 0.3);
+
+            const swordSize = canvas.width * 0.8;
+            const startY = -swordSize;
+            const endY = canvas.height / 2 - swordSize * 0.3;
+            const currentY = startY + (endY - startY) * (1 - Math.pow(1 - fallProgress, 4));
+
+            ctx.save();
+            ctx.translate(canvas.width / 2, currentY);
+            ctx.fillStyle = `rgba(44, 62, 80, ${Math.sin(fallProgress * Math.PI)})`;
+            ctx.shadowColor = color1;
+            ctx.shadowBlur = 50;
+            
+            ctx.beginPath();
+            ctx.moveTo(0, 0);
+            ctx.lineTo(-swordSize * 0.1, swordSize * 0.7);
+            ctx.lineTo(0, swordSize);
+            ctx.lineTo(swordSize * 0.1, swordSize * 0.7);
+            ctx.closePath();
+            ctx.fill();
+            
+            ctx.fillStyle = color2;
+            ctx.fillRect(-swordSize * 0.2, swordSize * 0.65, swordSize * 0.4, swordSize * 0.05);
+            ctx.restore();
+
+            if (impactProgress > 0) {
+                const shockwaveAlpha = Math.sin(impactProgress * Math.PI);
+                ctx.strokeStyle = `rgba(231, 76, 60, ${shockwaveAlpha})`;
+                ctx.lineWidth = 20 * (1 - impactProgress);
+                ctx.beginPath();
+                ctx.arc(canvas.width / 2, endY + swordSize, canvas.width * impactProgress, 0, Math.PI * 2);
+                ctx.stroke();
+            }
+        }
+
+        function drawIceRain(progress) {
+            if (Math.random() < progress * 2) {
+                const x = Math.random() * canvas.width;
+                const life = Math.random() * 0.5 + 0.5;
+                effectParticles.push({ type: 'ice_rain', x: x, y: -40, life: life, speed: Math.random() * 15 + 15, size: Math.random() * 30 + 20 });
+            }
+        }
+
+        function drawMultiLightning(progress) {
+            if (Math.random() < progress * 5) {
+                const startX = Math.random() * canvas.width;
+                const endX = canvas.width * 0.75 - 100 + Math.random() * 200;
+                const endY = canvas.height * 0.8 - 100 + Math.random() * 100;
+                effectParticles.push({ type: 'lightning', x: startX, y: 0, tx: endX, ty: endY, life: 0.4, color: '#f1c40f' });
+            }
+        }
+        
+        function drawMagicCircle(x, y, radius, color, glowColor, segmentColors = []) {
+            ctx.save();
+            ctx.translate(x, y);
+            
+            ctx.shadowColor = glowColor;
+            ctx.shadowBlur = radius * 0.8;
+            
+            ctx.strokeStyle = color;
+            ctx.lineWidth = radius * 0.05;
+            ctx.beginPath();
+            ctx.arc(0, 0, radius, 0, Math.PI * 2);
+            ctx.stroke();
+
+            ctx.lineWidth = radius * 0.02;
+            ctx.beginPath();
+            ctx.arc(0, 0, radius * 0.8, 0, Math.PI * 2);
+            ctx.stroke();
+
+            const time = Date.now() / 1000;
+            if (segmentColors.length > 0) {
+                segmentColors.forEach((segColor, i) => {
+                    ctx.strokeStyle = segColor;
+                    ctx.shadowColor = segColor;
+                    ctx.shadowBlur = 15;
+                    ctx.lineWidth = radius * 0.04;
+                    ctx.beginPath();
+                    const startAngle = time * (i % 2 === 0 ? 1 : -1) + i * Math.PI * 2 / segmentColors.length;
+                    ctx.arc(0, 0, radius * (0.9 - (i%2)*0.15), startAngle, startAngle + Math.PI / segmentColors.length);
+                    ctx.stroke();
+                });
+            }
+
+            ctx.fillStyle = color;
+            ctx.shadowColor = color;
+            ctx.shadowBlur = 10;
+            ctx.font = `${radius * 0.2}px 'Cinzel Decorative'`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            const runes = ['🔥', '❄️', '⚡️', '🌪️', '🌍', '💧'];
+            for (let i = 0; i < 6; i++) {
+                const angle = i * (Math.PI / 3) + time * (i % 2 === 0 ? -0.5 : 0.5);
+                const runeX = Math.cos(angle) * radius * 0.6;
+                const runeY = Math.sin(angle) * radius * 0.6;
+                ctx.save();
+                ctx.translate(runeX, runeY);
+                ctx.rotate(angle + Math.PI / 2);
+                ctx.fillText(runes[i], 0, 0);
+                ctx.restore();
+            }
+            
+            ctx.restore();
+        }
+
+        function drawMeteorProjectile(x, y, size) {
+            ctx.save();
+            const grad = ctx.createRadialGradient(x, y, 0, x, y, size);
+            grad.addColorStop(0, 'white');
+            grad.addColorStop(0.3, '#ffcc00');
+            grad.addColorStop(0.8, '#e74c3c');
+            grad.addColorStop(1, 'rgba(0,0,0,0)');
+            ctx.fillStyle = grad;
+            ctx.beginPath();
+            ctx.arc(x, y, size, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.fillStyle = 'rgba(50, 30, 20, 0.7)';
+            for (let i = 0; i < 5; i++) {
+                const angle = Math.random() * Math.PI * 2;
+                const r = Math.random() * size * 0.8;
+                const patchSize = Math.random() * size * 0.3 + size * 0.1;
+                ctx.beginPath();
+                ctx.arc(x + Math.cos(angle) * r, y + Math.sin(angle) * r, patchSize, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            if (Math.random() > 0.2) {
+                effectParticles.push({ type: 'ember', x: x, y: y, vx: (Math.random()-0.5)*4, vy: (Math.random()-0.5)*4, life: 0.4, size: Math.random() * 5 + 2 });
+            }
+            ctx.restore();
+        }
+
+        function drawElementProjectile(x, y, size, color) {
+            ctx.save();
+            ctx.fillStyle = color;
+            ctx.shadowColor = 'white';
+            ctx.shadowBlur = 15;
+            
+            switch(color) {
+                case '#e74c3c':
+                    drawMeteorProjectile(x, y, size);
+                    break;
+                case '#3498db':
+                    ctx.beginPath();
+                    for(let i=0; i<5; i++){
+                        const angle = i * (Math.PI * 2 / 5);
+                        ctx.lineTo(x + Math.cos(angle) * size, y + Math.sin(angle) * size);
+                        ctx.lineTo(x + Math.cos(angle + Math.PI / 5) * size * 0.5, y + Math.sin(angle + Math.PI / 5) * size * 0.5);
+                    }
+                    ctx.closePath();
+                    ctx.fill();
+                    break;
+                case '#f1c40f':
+                    ctx.strokeStyle = color;
+                    ctx.lineWidth = 3;
+                    ctx.beginPath();
+                    for(let i=0; i<8; i++){
+                        const angle = i * (Math.PI / 4);
+                        ctx.moveTo(x, y);
+                        ctx.lineTo(x + Math.cos(angle) * size, y + Math.sin(angle) * size);
+                    }
+                    ctx.stroke();
+                    break;
+                case '#2ecc71':
+                    ctx.strokeStyle = color;
+                    ctx.lineWidth = 4;
+                    ctx.beginPath();
+                    ctx.arc(x, y, size, 0, Math.PI * 1.5, false);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(x, y, size * 0.6, Math.PI, Math.PI * 2.5, false);
+                    ctx.stroke();
+                    break;
+            }
+            ctx.restore();
+        }
+
+        function drawExplosion(x, y, radius, color, glowColor) {
+            ctx.save();
+            const grad = ctx.createRadialGradient(x, y, 0, x, y, radius);
+            grad.addColorStop(0, 'rgba(255, 255, 255, 0.9)');
+            grad.addColorStop(0.5, color);
+            grad.addColorStop(1, 'rgba(0,0,0,0)');
+            
+            ctx.fillStyle = grad;
+            ctx.shadowColor = glowColor;
+            ctx.shadowBlur = radius * 0.5;
+            
+            ctx.beginPath();
+            ctx.arc(x, y, radius, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.restore();
+        }
+
+        function drawMeteorShower(progress) {
+            const chargeProgress = Math.min(1, progress / 0.4);
+            const rainProgress = Math.max(0, (progress - 0.3) / 0.7);
+
+            drawMagicCircle(canvas.width / 2, canvas.height / 2, canvas.width * 0.6 * chargeProgress, '#e74c3c', `rgba(255, 0, 0, ${0.5 * chargeProgress})`);
+
+            if (rainProgress > 0 && Math.random() < rainProgress * 5) {
+                const startX = Math.random() * canvas.width * 1.5 - canvas.width * 0.25;
+                const endX = Math.random() * canvas.width;
+                const duration = Math.random() * 0.5 + 0.3;
+                effectParticles.push({ type: 'meteor', sx: startX, sy: -100, ex: endX, ey: canvas.height * 0.8, life: duration, maxLife: duration, size: Math.random() * 50 + 30 });
+            }
+        }
+
+        function drawFinalMeteor(progress) {
+            const fallProgress = Math.min(1, progress / 0.7);
+            const impactProgress = Math.max(0, (progress - 0.7) / 0.3);
+
+            const size = 300;
+            const startY = -size;
+            const endY = canvas.height * 0.5;
+            const currentY = startY + (endY - startY) * (1 - Math.pow(1 - fallProgress, 4));
+
+            drawMeteorProjectile(canvas.width / 2, currentY, size);
+
+            if (impactProgress > 0) {
+                const p = Math.sin(impactProgress * Math.PI);
+                drawExplosion(canvas.width / 2, endY, canvas.width * p, '#ff4500', 'red');
+            }
+        }
+
+        function drawGrandElemental(progress) {
+            const chargeProgress = Math.min(1, progress / 0.5);
+            const rainProgress = Math.max(0, (progress - 0.4) / 0.6);
+            const colors = ['#e74c3c', '#3498db', '#f1c40f', '#2ecc71'];
+
+            drawMagicCircle(canvas.width / 2, canvas.height / 2, canvas.width * 0.8 * chargeProgress, 'white', `rgba(255, 255, 255, ${0.3 * chargeProgress})`, colors);
+            
+            if (rainProgress > 0 && Math.random() < rainProgress * 10) {
+                const type = colors[Math.floor(Math.random() * colors.length)];
+                const startX = Math.random() * canvas.width;
+                const endX = Math.random() * canvas.width;
+                const duration = Math.random() * 0.4 + 0.2;
+                effectParticles.push({ type: 'elemental_rain', elementType: type, sx: startX, sy: -100, ex: endX, ey: canvas.height * 0.8, life: duration, maxLife: duration, size: Math.random() * 40 + 20 });
+            }
+        }
+
+        function drawConfetti(deltaTime) {
+             effectParticles.forEach((p, index) => {
+                 p.life -= deltaTime / 3000;
+                 if (p.life <= 0) { effectParticles.splice(index, 1); return; }
+                 
+                 p.x += p.vx * (deltaTime / 16); p.y += p.vy * (deltaTime / 16);
+                 p.vy += 0.1 * (deltaTime / 16);
+                 
+                 ctx.save();
+                 ctx.globalAlpha = p.life > 0 ? p.life : 0;
+                 ctx.translate(p.x, p.y);
+                 ctx.fillStyle = p.color;
+                 ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
+                 ctx.restore();
+               });
+        }
+        
+        function updateAndDrawMiscParticles(deltaTime) {
+            effectParticles.forEach((p, index) => {
+                p.life -= deltaTime / 1000;
+                if (p.life <= 0) { effectParticles.splice(index, 1); return; }
+                
+                ctx.save();
+                ctx.globalAlpha = p.life > 0 ? p.life : 0;
+                
+                if (p.type === 'lightning') {
+                    ctx.strokeStyle = p.color || `hsl(${200 + Math.random()*100}, 100%, ${70 + Math.random()*30}%)`;
+                    ctx.lineWidth = Math.random() * 5 + 2;
+                    ctx.shadowColor = p.color || '#9b59b6'; ctx.shadowBlur = 20;
+                    ctx.beginPath(); ctx.moveTo(p.x, p.y);
+                    for(let i=1; i<=5; i++) {
+                        const nx = p.x + (p.tx-p.x) * (i/5) + (Math.random()-0.5)*40;
+                        const ny = p.y + (p.ty-p.y) * (i/5) + (Math.random()-0.5)*40;
+                        ctx.lineTo(nx, ny);
+                    }
+                    ctx.stroke();
+                } else if (p.type === 'ice_shard' || p.type === 'ice_rain') {
+                    p.x += (p.vx || 0) * (deltaTime/16); p.y += (p.vy || p.speed) * (deltaTime/16);
+                    if (p.type === 'ice_rain' && p.y > canvas.height * 0.8) {
+                        p.life = 0;
+                        for(let i=0; i<8; i++) effectParticles.push({ type: 'frost', x: p.x, y: p.y, life: 0.8, vx: (Math.random()-0.5)*4, vy: (Math.random()-0.5)*4 });
+                    }
+                    ctx.fillStyle = 'rgba(173, 216, 230, 0.9)';
+                    ctx.strokeStyle = 'white'; ctx.lineWidth = 3;
+                    ctx.shadowColor = 'cyan'; ctx.shadowBlur = 15;
+                    ctx.beginPath();
+                    ctx.moveTo(p.x, p.y); ctx.lineTo(p.x - p.size/2, p.y + p.size); ctx.lineTo(p.x + p.size/2, p.y + p.size);
+                    ctx.closePath();
+                    ctx.fill(); ctx.stroke();
+                } else if (p.type === 'frost') {
+                    p.x += p.vx; p.y += p.vy;
+                    ctx.fillStyle = `rgba(200, 230, 255, ${p.life * 0.7})`;
+                    ctx.beginPath(); ctx.arc(p.x, p.y, 5, 0, Math.PI*2); ctx.fill();
+                } else if (p.type === 'meteor') {
+                    const p_life = 1 - (p.life / p.maxLife);
+                    p.x = p.sx + (p.ex - p.sx) * p_life;
+                    p.y = p.sy + (p.ey - p.sy) * p_life;
+                    if (p.life < 0.1) {
+                        p.life = 0;
+                        drawExplosion(p.x, p.y, 200, '#ff4500', 'red');
+                    }
+                    drawMeteorProjectile(p.x, p.y, p.size);
+                } else if (p.type === 'elemental_rain') {
+                    const p_life = 1 - (p.life / p.maxLife);
+                    p.x = p.sx + (p.ex - p.sx) * p_life;
+                    p.y = p.sy + (p.ey - p.sy) * p_life;
+                    if (p.life < 0.1) {
+                        p.life = 0;
+                        drawExplosion(p.x, p.y, 150, p.elementType, p.elementType);
+                    }
+                    drawElementProjectile(p.x, p.y, p.size, p.elementType);
+                } else if (p.type === 'falling_weapon' || p.type === 'flying_weapon') {
+                    const p_life = 1 - (p.life / p.maxLife);
+                    p.x = p.sx + (p.ex - p.sx) * p_life;
+                    p.y = p.sy + (p.ey - p.sy) * p_life;
+                    const angle = Math.atan2(p.ey - p.sy, p.ex - p.sx) * 180 / Math.PI + 90;
+                    if (p.life < 0.1) {
+                        p.life = 0;
+                        for(let i=0; i<3; i++) effectParticles.push({ type: 'dust_puff', x: p.x, y: p.y, life: 0.5 });
+                    }
+                    drawWeapon(p.x, p.y, p.weapon, 80, angle);
+                } else if (p.type === 'dust_puff') {
+                    ctx.fillStyle = `rgba(150, 130, 110, ${p.life * 0.5})`;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, 40 * (1-p.life), 0, Math.PI * 2);
+                    ctx.fill();
+                } else if (p.type === 'secondary_explosion') {
+                    const p_life = 1 - (p.life / p.maxLife);
+                    drawExplosion(p.x, p.y, p.radius * Math.sin(p_life * Math.PI), p.color || '#ff8c00', p.color || 'red');
+                }
+
+                ctx.restore();
+            });
+            ctx.shadowBlur = 0;
+        }
+        
+        function drawWeapon(x, y, type, size, angle) {
+            ctx.save();
+            ctx.translate(x, y);
+            ctx.rotate(angle * Math.PI / 180);
+            ctx.fillStyle = '#aaa';
+            ctx.strokeStyle = '#555';
+            ctx.lineWidth = 2;
+            switch (type) {
+                case 'sword':
+                    ctx.fillRect(-size * 0.1, -size * 0.8, size * 0.2, size);
+                    ctx.fillStyle = '#8B4513';
+                    ctx.fillRect(-size * 0.2, -size * 0.1, size * 0.4, size * 0.1);
+                    break;
+                case 'spear':
+                    ctx.fillRect(-size * 0.05, -size, size * 0.1, size * 1.2);
+                    ctx.beginPath();
+                    ctx.moveTo(0, -size); ctx.lineTo(-size * 0.15, -size * 0.8); ctx.lineTo(size * 0.15, -size * 0.8);
+                    ctx.closePath(); ctx.fill();
+                    break;
+                case 'arrow':
+                    ctx.fillRect(-size * 0.03, -size * 0.8, size * 0.06, size);
+                    ctx.beginPath();
+                    ctx.moveTo(0, -size * 0.8); ctx.lineTo(-size * 0.1, -size * 0.7); ctx.lineTo(size * 0.1, -size * 0.7);
+                    ctx.closePath(); ctx.fill();
+                    break;
+                case 'mace':
+                    ctx.fillRect(-size * 0.1, -size * 0.5, size * 0.2, size * 0.6);
+                    ctx.beginPath();
+                    ctx.arc(0, -size * 0.5, size / 4, 0, Math.PI * 2);
+                    ctx.fill();
+                    break;
+                case 'axe':
+                    ctx.fillRect(-size * 0.1, -size * 0.5, size * 0.2, size);
+                    ctx.beginPath();
+                    ctx.arc(-size * 0.1, -size * 0.5, size/2, -Math.PI/2, Math.PI/2);
+                    ctx.closePath();
+                    ctx.fill();
+                    break;
+            }
+            ctx.restore();
+        }
+
+        function drawSharpSlash(x, y, height, width, alpha, color, shadowColor, shadowBlur, lineWidth, angle = 0) {
+            ctx.save();
+            ctx.globalAlpha = alpha;
+            ctx.strokeStyle = color;
+            ctx.lineWidth = lineWidth;
+            ctx.shadowColor = shadowColor;
+            ctx.shadowBlur = shadowBlur;
+            ctx.translate(x, y);
+            ctx.rotate(angle * Math.PI / 180);
+            ctx.beginPath();
+            ctx.moveTo(0, -height / 2);
+            ctx.bezierCurveTo(width * 0.8, -height * 0.2, width * 0.8, height * 0.2, 0, height / 2);
+            ctx.stroke();
+            ctx.restore();
+        }
+
+        function drawBowingMonsters() {
+            const monsterKeys = ['하', '중', '상', '보스'];
+            monsterKeys.forEach((key, index) => {
+                const img = loadedImages[key];
+                if (!img) return;
+                const size = canvas.width * 0.15;
+                const x = canvas.width * (0.15 + index * 0.22);
+                const y = canvas.height * 0.85 - size;
+                ctx.save();
+                ctx.translate(x + size / 2, y + size);
+                const bowAngle = 0.4 + Math.sin(Date.now() / 500 + index) * 0.1;
+                ctx.rotate(bowAngle);
+                ctx.drawImage(img, -size / 2, -size, size, size);
+                ctx.restore();
+            });
+        }
+
+        function drawKnowledgeBook() {
+            const img = loadedImages['book'];
+            if (!img) return;
+            const progress = Math.min(1, gameState.animation.progress / 4000);
+            const size = canvas.width * 0.25 * progress;
+            const x = canvas.width / 2 - size / 2;
+            const y = canvas.height * 0.5 - size / 2 + Math.sin(progress * Math.PI * 2) * 10;
+            ctx.save();
+            ctx.globalAlpha = progress;
+            ctx.shadowColor = 'gold';
+            ctx.shadowBlur = 30 * progress;
+            ctx.drawImage(img, x, y, size, size);
+            ctx.restore();
+        }
+
+        function drawGameOverAnimation(deltaTime) {
+            const gravity = 0.5;
+            gameOverDebris.forEach(p => {
+                p.vy += gravity * (deltaTime / 16);
+                p.x += p.vx * (deltaTime / 16);
+                p.y += p.vy * (deltaTime / 16);
+                p.rotation += p.vr * (deltaTime / 16);
+                
+                ctx.save();
+                ctx.translate(p.x + p.width/2, p.y + p.height/2);
+                ctx.rotate(p.rotation);
+                ctx.fillStyle = p.color;
+                ctx.fillRect(-p.width/2, -p.height/2, p.width, p.height);
+                ctx.strokeStyle = '#2c2a4a';
+                ctx.strokeRect(-p.width/2, -p.height/2, p.width, p.height);
+                ctx.restore();
+            });
+        }
+        
+        // ==================================================================
+        // 게임 초기화 (블랙스크린 방지 - 즉시 실행)
+        // ==================================================================
+        
+        // 1. 이벤트 리스너 세팅 및 화면 크기 맞춤
+        setupEventListeners();
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+        
+        // 2. 무거운 이미지 다운로드 완료를 기다리지 않고, 1초 안에 무조건 게임 화면부터 켭니다!
+        initGame(); 
+
+        // 3. 에셋(이미지)들은 게임 화면 뒤에서 몰래 조용히 다운로드 받습니다.
+        async function loadAssetsAsync() {
+            const imageSources = [
+                ...Object.values(assets.characters),
+                ...Object.values(assets.monsters),
+                ...Object.values(assets.misc)
+            ];
+            
+            const imagePromises = imageSources.map(src => {
+                return new Promise((resolve) => {
+                    const img = new Image();
+                    const finish = () => {
+                        for (const category in assets) {
+                            const key = Object.keys(assets[category]).find(k => assets[category][k] === src);
+                            if (key) { loadedImages[key] = img; break; }
+                        }
+                        resolve();
+                    };
+                    img.onload = finish;
+                    img.onerror = finish; // 이미지가 깨져도 게임이 멈추지 않고 넘어가도록 방어!
+                    img.src = src;
+                    if (img.complete) finish();
+                });
+            });
+            await Promise.all(imagePromises);
+        }
+        loadAssetsAsync(); // 화면이 뜬 후 알아서 백그라운드에서 로드되게 던져둡니다.
+        
     </script>
 </body>
 </html>
