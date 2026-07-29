@@ -3068,6 +3068,7 @@
         // ==================================================================
         // 메인 게임 루프 시작
         // ==================================================================
+        let lastTime = 0; //
         function gameLoop(timestamp) {
             if (!gameState || gameState.currentScreen !== 'game-screen') {
                 animationFrameId = null;
