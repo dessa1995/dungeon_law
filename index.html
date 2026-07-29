@@ -923,7 +923,7 @@
 
     <script>
         // ==================================================================
-        // 💡 백엔드(구글 앱스 스크립트) API 주소 연결
+        // 💡 웹앱 API 주소
         // ==================================================================
         const API_URL = "https://script.google.com/macros/s/AKfycbyxJ5fZBBQtxRVp_CjrZGQQ_QgZkpumMQ3w3rq5iMBFWju-5yJw02NA0KR-D_x9f08j/exec";
 
@@ -988,6 +988,7 @@
         let isInputLocked = false;
         let animationFrameId;
 
+        // 퀴즈 데이터 전체 보존
         const quizzes = [
             { id: 101, type: 'one-step-ox', difficulty: '하', case: "형법은 범죄와 그에 대한 법적 효과로서 형벌과 보안 처분을 규정한 모든 법 규범을 의미한다.", q1: 'O', explanation: "형법은 넓은 의미에서 범죄와 그에 대한 법적 효과로서 형벌과 보안 처분을 규정한 모든 법 규범의 총체를 의미한다." },
             { id: 102, type: 'one-step-ox', difficulty: '하', case: "실질적 의미의 형법은 ‘형법’이라는 명칭이 붙여진 법률만을 의미한다.", q1: 'X', explanation: "단순히 '형법'이라는 이름의 법률을 지칭하는 것은 형식적 의미의 형법이다." },
@@ -1075,7 +1076,7 @@
 
             { id: 401, type: 'two-step', difficulty: '최상', case: "오늘날 강조되는 실질적 죄형 법정주의는 입법자가 부당한 법률을 제정하는 것까지도 제한하여 국민의 자유와 권리를 보호하고자 한다.", q1: 'O', q2_question: "다음은 조선시대 형벌에 대한 설명입니다. 이를 통해 알 수 있는 현대적 죄형 법정주의 원칙의 중요성은 무엇입니까? <br>\"조선시대에는 성문법 외에 정령이나 사회 통념에 따라 형벌이 부과되기도 했다.\"", q2: ["예측 가능하고 명확한 법률의 중요성", "형벌과 범죄의 비례성 원칙의 중요성", "행위 당시의 법률을 적용하는 행위시법주의의 중요성", "국가 형벌권 남용을 막기 위한 적법 절차의 원칙의 중요성"], answerIndex: 0, explanation: "조선시대의 사례는 성문법 외의 기준으로 형벌이 부과될 수 있었음을 보여준다. 이는 국민이 어떤 행위가 처벌 대상이 되는지 예측할 수 있도록 법률이 명확해야 한다는 현대의 명확성의 원칙과 관습 형법 금지의 원칙의 중요성을 부각시킨다." },
             { id: 402, type: 'two-step', difficulty: '최상', case: "보안처분도 형사 제재이므로 형벌과 같이 부과 요건 등에 있어서 적법절차의 원리가 준수되어야 한다.", q1: 'O', q2_question: "다음 중 형벌과 보안처분에 대한 설명으로 옳은 것을 고르시오.", q2: ["징역형은 재산형에 해당한다.", "벌금형은 일정 기간 신체의 자유를 박탈하는 형벌이다.", "보안 처분은 범죄자의 사회적 위험성을 전제로 특별 예방의 관점에서 부과된다.", "사형은 무기 징역형보다 범죄자에 대한 법익 침해의 정도가 작다."], answerIndex: 2, explanation: "보안 처분은 행위자의 사회적 위험성과 재범의 우려를 전제로 특별 예방의 관점에서 부과된다. ① 징역형은 자유형, ② 벌금형은 재산형, ④ 사형은 가장 큰 법익 침해를 가하는 형벌이다." },
-            { id: 403, type: 'two-step', difficulty: '최상', case: "형사 절차에서 유죄 판결이 확정되기 전까지는 피의자와 피고인을 무죄로 추정하는 것이 원칙이다.", q1: 'O', q2_question: "다음 중 무죄 추정의 원칙이 적용된 것으로 볼 수 없는 상황은?", q2: ["언론이 피의자에 대해 '범죄자'라는 표현을 사용하지 않고 '피의자' 또는 '혐의자'로 보도하는 것", "경찰 수사가 진행 중인 공무원에 대해 유죄 판결이 나기 전에 직위 해제하고 언론에 실명과 사진을 공개한 경우", "피고인이 범죄 혐의로 수사를 받더라도 불구속으로 수사하는 것을 원칙으로 하는 것", "피고인이 재판 중에도 변호인의 조력을 받을 권리를 보장받는 것"], answerIndex: 1, explanation: "무죄 추정의 원칙은 유죄 판결이 확정되기 전까지는 피의자나 피고인을 무죄로 간주해야 한다는 원칙이다. 유죄가 확정되기 전부터 공무원을 범죄자로 취급하여 언론에 보도하는 것은 무죄 추정의 원칙의 취지에 어긋난다." },
+            { id: 403, type: 'two-step', difficulty: '최상', case: "형사 절차에서 유죄 판결이 확정되기 전까지는 피의자와 피고인을 무죄로 추정하는 것이 원칙이다.", q1: 'O', q2_question: "다음 중 무죄 추정의 원칙이 적용된 것으로 볼 수 없는 상황은?", q2: ["언론이 피의자에 대해 '범죄자'라는 표현을 사용하지 않고 '피의자' 또는 '혐의자'로 보도하는 것", "경찰 수사가 진행 중인 공무원에 대해 유죄 판결이 나기 전에 직위 해제하고 언론에 실명과 사진을 공개한 경우", "피고인이 범죄 혐혐의로 수사를 받더라도 불구속으로 수사하는 것을 원칙으로 하는 것", "피고인이 재판 중에도 변호인의 조력을 받을 권리를 보장받는 것"], answerIndex: 1, explanation: "무죄 추정의 원칙은 유죄 판결이 확정되기 전까지는 피의자나 피고인을 무죄로 간주해야 한다는 원칙이다. 유죄가 확정되기 전부터 공무원을 범죄자로 취급하여 언론에 보도하는 것은 무죄 추정의 원칙의 취지에 어긋난다." },
             { id: 404, type: 'two-step', difficulty: '최상', case: "보안 처분은 형벌과 달리 과거의 불법에 대한 책임에 기초하며, 그 부과에 죄형 법정주의의 소급효 금지 원칙이 예외 없이 적용된다.", q1: 'X', q2_question: "다음 중 소년법상 보호처분으로서 소년의 사회 복귀 및 교화를 목적으로 하는 시설에 수용되는 사례는?", q2: ["만 17세의 甲이 심각한 범죄로 일반 형사 법원에서 징역형을 선고받고 소년 교도소에 수용된 경우", "만 16세의 乙이 가정 법원 소년부로부터 '장기 소년원 송치' 처분을 받고 소년원에 수용된 경우", "만 20세의 丙이 음주운전으로 집행 유예를 선고받고 사회봉사 명령을 받은 경우", "만 14세의 丁이 심신상실 상태에서 살인죄를 저질러 치료 감호 시설에 수용된 경우"], answerIndex: 1, explanation: "보안 처분은 장래의 위험성을 예방하기 위한 조치로 소급효 금지 원칙이 적용되지 않는다. 소년원은 소년 보호 처분을 받은 소년을 교정 교육을 통해 사회 복귀와 교화를 목적으로 수용하는 시설이다." },
             { id: 405, type: 'two-step', difficulty: '최상', case: "강제 처분은 실체적 진실을 발견하고 형벌권을 실현하기 위해 불가피하더라도, 개인의 기본권을 침해하므로 반드시 법률에 의하여 그 종류 및 요건과 절차가 갖추어져야 한다.", q1: 'O', q2_question: "다음 사례는 형사 절차에서 인권 보장을 위한 어떤 원칙을 위반한 것으로 볼 수 있습니까? <br>\"경찰관 甲은 乙을 체포 후, 권리 고지 없이 심문하여 자백을 받았고, 이 자백이 유일한 유죄 증거로 제시되었다.\"", q2: ["영장주의", "무죄 추정의 원칙", "자백 보강 법칙 및 미란다 원칙(진술 거부권 고지)", "적법 절차의 원칙 및 형사 보상 제도"], answerIndex: 2, explanation: "이 사례에서는 乙에게 진술 거부권 등의 고지(미란다 원칙)가 이루어지지 않아 위법하게 수집된 자백에 해당하며, 또한 자백이 유일한 증거로 제시되었으므로 자백 보강 법칙에 위배된다. 이 두 원칙 위반이 핵심이다." },
             { id: 406, type: 'two-step', difficulty: '최상', case: "학생 갑은 학교 폭력 가해자로 지목되어 징계가 확정되기 전에 전면 등교 금지 조치를 받았다. 이러한 학교의 조치는 우리 헌법상 형사사법 절차에 적용되는 기본권 보호 원칙에 비추어 정당하다고 볼 수 있는가?", q1: 'X', q2_question: "위 상황에서 갑이 보장받지 못한 형사 절차에서의 인권 보장 원칙은 무엇인가?", q2: ["진술 거부권", "변호인의 조력을 받을 권리", "무죄 추정의 원칙", "증거재판주의"], answerIndex: 2, explanation: "형사 절차에서 유죄 확정 전까지는 무죄로 추정해야 하며, 징계 확정 전 불이익 조치는 위 원칙에 반한다." },
@@ -1090,16 +1091,92 @@
             { id: 415, type: 'two-step', difficulty: '최상', case: "자구행위는 법정 절차를 밟을 시간적 여유가 전혀 없는 경우에만 인정된다.", q1: 'O', q2_question: "병은 도망치는 절도범을 뒤쫓아 건물 안으로 몰고, 밖에서 문을 잠가 경찰을 기다렸다. 이 행위는?", q2: ["감금죄 성립", "과잉방위", "자구행위로 위법성 조각", "긴급피난"], answerIndex: 2, explanation: "청구권의 실현 및 보호를 위한 불가피한 조치로 자구행위로 인정될 수 있다." } 
         ];
 
-        // 💡 백엔드(구글 스크립트)와 통신하는 핵심 함수 (CORS 우회 적용)
+        // 💡 UI 요소 토글 함수 복구
+        function showQuizContainer(show) {
+            const quizHeight = quizContainer.offsetHeight || 200; // 안전 장치
+            if (show) {
+                quizContainer.style.display = 'flex';
+                fixedButtonsContainer.style.bottom = `${quizContainer.getBoundingClientRect().height + 15}px`;
+            } else {
+                quizContainer.style.display = 'none';
+                fixedButtonsContainer.style.bottom = '15px';
+            }
+        }
+
+        function updateStatus() {
+            document.getElementById('status-name').textContent = gameState.player.name;
+            document.getElementById('status-level').textContent = gameState.player.level;
+            document.getElementById('status-lives').textContent = '❤️'.repeat(gameState.lives);
+            
+            ultimateSkillBtn.classList.toggle('disabled', gameState.hasUsedUltimate);
+            updateProgressDisplay();
+        }
+        
+        function updateProgressDisplay() {
+            let progressText = ``;
+            if (gameState.difficulty === '도전자') {
+                progressText = `점수: ${gameState.score}`;
+            } else {
+                const bossThresholds = { '하': 5, '중': 8, '상': 10 };
+                const needed = bossThresholds[gameState.difficulty];
+                const remaining = Math.max(0, needed - gameState.questionsCorrect);
+                progressText = `정답: ${gameState.questionsCorrect}`;
+                if (!gameState.isBossFight && !gameState.clearedStages[gameState.difficulty]) {
+                    progressText += ` | 보스까지: ${remaining}문제`;
+                }
+            }
+            progressDisplay.textContent = progressText;
+        }
+
+        function lockInput() { isInputLocked = true; }
+        function unlockInput() { isInputLocked = false; }
+
+        function showMessage(text, callback) {
+            lockInput();
+            messageText.innerHTML = text;
+            messageModal.style.display = 'flex';
+            
+            const newOkBtn = messageOkBtn.cloneNode(true);
+            messageOkBtn.parentNode.replaceChild(newOkBtn, messageOkBtn); 
+            messageOkBtn = newOkBtn; 
+
+            messageOkBtn.onclick = () => {
+                messageModal.style.display = 'none';
+                unlockInput();
+                if (callback) callback();
+            };
+        }
+        
+        function showTemporaryMessage(text, duration, callback) {
+            return new Promise(resolve => {
+                lockInput();
+                tempMessageOverlay.textContent = text;
+                tempMessageOverlay.classList.add('visible');
+                
+                setTimeout(() => {
+                    tempMessageOverlay.classList.remove('visible');
+                    unlockInput();
+                    if (callback) callback();
+                    resolve();
+                }, duration);
+            });
+        }
+
+        function resizeCanvas() {
+            const container = document.getElementById('game-screen');
+            if(container) {
+                canvas.width = container.clientWidth;
+                canvas.height = container.clientHeight;
+            }
+        }
+
+        // 💡 백엔드(구글 스크립트)와 통신하는 핵심 함수
         async function fetchAPI(action, data = {}) {
             const payload = { action: action, ...data };
             try {
-                // x-www-form-urlencoded 방식으로 데이터를 변환하여 전송 (CORS 차단 방지)
                 const response = await fetch(API_URL, {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded',
-                    },
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                     body: "payload=" + encodeURIComponent(JSON.stringify(payload))
                 });
                 return await response.json();
@@ -1109,9 +1186,6 @@
             }
         }
 
-        // ==================================================================
-        // 화면 로직 및 이벤트 리스너
-        // ==================================================================
         function setupEventListeners() {
             document.getElementById('story-screen').addEventListener('click', () => { 
                 showScreen('start-screen'); 
@@ -1304,674 +1378,9 @@
             });
         }
 
-        window.addEventListener('load', async () => {
-            setupEventListeners();
-            await loadAssets();
-            initGame();
-            resizeCanvas();
-        });
-        
-        window.addEventListener('resize', resizeCanvas);
-
-        function initGame() {
-            resetGameState();
-            showScreen('story-screen');
-        }
-
-        function resetGameState() {
-             gameState = {
-                  player: { name: '', class: '', gender: '', level: 1, imageKey: '' },
-                  difficulty: null, lives: 5, monstersDefeated: 0,
-                  currentMonster: { type: null, imageKey: null, x: 0, y: 0, hitProgress: 0, alpha: 1 },
-                  currentQuiz: null, usedQuizIds: [],
-                  clearedStages: { '하': false, '중': false, '상': false },
-                  isBossFight: false, bossStage: 0,
-                  currentScreen: 'start-screen',
-                  animation: { type: null, progress: 0, duration: 0, onEnd: null, data: {} },
-                  questionsCorrect: 0,
-                  isSkippable: false,
-                  onSkip: null,
-                  skippableTimeoutId: null,
-                  isChallengeUnlocked: false,
-                  score: 0,
-                  hasUsedUltimate: false,
-                  isAdmin: false
-             };
-             gameOverDebris = [];
-             backgroundParticles = [];
-             effectParticles = [];
-             isInputLocked = false;
-        }
-
-        function showScreen(screenId) {
-            screens.forEach(screen => screen.classList.remove('active'));
-            document.getElementById(screenId).classList.add('active');
-            gameState.currentScreen = screenId;
-
-            const isGameScreen = screenId === 'game-screen';
-            failsafeContainer.style.display = isGameScreen ? 'block' : 'none';
-            instructionsModal.style.display = 'none'; 
-            fixedButtonsContainer.style.display = isGameScreen ? 'block' : 'none';
-
-            if (!isGameScreen && animationFrameId) {
-                cancelAnimationFrame(animationFrameId);
-                animationFrameId = null;
-            }
-        }
-        
-        async function loadAssets() {
-            const imageSources = [
-                ...Object.values(assets.characters),
-                ...Object.values(assets.monsters),
-                ...Object.values(assets.misc)
-            ];
-            const imagePromises = imageSources.map(src => {
-                return new Promise((resolve) => {
-                    const img = new Image();
-                    img.src = src;
-                    img.onload = () => {
-                        let keyFound = false;
-                        for (const category in assets) {
-                            const key = Object.keys(assets[category]).find(k => assets[category][k] === src);
-                            if (key) {
-                                loadedImages[key] = img;
-                                keyFound = true;
-                                break;
-                            }
-                        }
-                        resolve();
-                    };
-                    img.onerror = () => {
-                        console.error(`이미지 로딩 실패: ${src}`);
-                        resolve(); 
-                    }
-                });
-            });
-            await Promise.all(imagePromises);
-        }
-        
-        function initAndPlayBGM() {
-            if (bgmAudioElement.paused) {
-                const playPromise = bgmAudioElement.play();
-                if (playPromise !== undefined) {
-                    playPromise.catch(error => {
-                        console.log("BGM 자동재생 대기:", error);
-                    });
-                }
-            }
-        }
-        
-        function startAnimation(type, duration, onEnd, data = {}) {
-            gameState.animation = { type, duration, progress: 0, onEnd, data };
-        }
-
-        function clearAnimation() {
-            if (gameState.animation && typeof gameState.animation.onEnd === 'function') {
-                gameState.animation.onEnd();
-            }
-            gameState.animation = { type: null, duration: 0, progress: 0, onEnd: null, data: {} };
-        }
-
-        async function saveGame(showAlert = true) {
-            if (showAlert) showMessage("서버에 진행 상황을 저장 중입니다...");
-            const playerData = {
-                nickname: gameState.player.name,
-                class: gameState.player.class,
-                gender: gameState.player.gender,
-                level: gameState.player.level,
-                score: gameState.score || 0,
-                clearedStages: gameState.clearedStages,
-                isAdmin: gameState.isAdmin
-            };
-            
-            const res = await fetchAPI('save', { playerData: playerData });
-            if (res.error || !res.success) {
-                if (showAlert) showMessage("저장에 실패했습니다. 잠시 후 다시 시도해주세요.");
-            } else {
-                if (showAlert) showMessage("진행 상황이 성공적으로 저장되었습니다!");
-            }
-        }
-
-        async function openRankingScreen() {
-            showScreen('ranking-screen');
-            const listEl = document.getElementById('ranking-list-content');
-            listEl.innerHTML = "<p>서버에서 랭킹을 집계 중입니다...</p>";
-            document.getElementById('search-result-area').innerHTML = "";
-
-            const res = await fetchAPI('getRankings');
-            if (res.error) {
-                listEl.innerHTML = "<p>랭킹을 불러오는데 실패했습니다.</p>";
-                return;
-            }
-
-            const rankings = res.rankings;
-            if (rankings.length === 0) {
-                listEl.innerHTML = "<p>아직 기록이 없습니다. 첫 번째 랭커에 도전하세요!</p>";
-                return;
-            }
-            let html = "<table><tr><th>순위</th><th>닉네임</th><th>레벨</th><th>최고점수</th></tr>";
-            rankings.forEach((r, i) => {
-                let rankMark = (i === 0) ? "🥇" : (i === 1) ? "🥈" : (i === 2) ? "🥉" : `${i + 1}위`;
-                html += `<tr><td>${rankMark}</td><td>${r.nickname}</td><td>Lv.${r.level}</td><td>${r.score}점</td></tr>`;
-            });
-            html += "</table>";
-            listEl.innerHTML = html;
-        }
-
-        function setupDifficultyScreen() {
-            const statusEl = document.getElementById('difficulty-char-status');
-            statusEl.innerHTML = `
-                <h3>${gameState.player.name}</h3>
-                <p>LV. ${gameState.player.level} | 직업: ${gameState.player.class}</p>
-            `;
-            
-            const adminPanel = document.getElementById('admin-panel');
-            if (gameState.isAdmin) {
-                adminPanel.style.display = 'block';
-                document.getElementById('admin-level-select').value = gameState.player.level;
-            } else {
-                adminPanel.style.display = 'none';
-            }
-            
-            const optionsContainer = document.getElementById('difficulty-options');
-            optionsContainer.querySelectorAll('.difficulty-option:not(.challenge-option)').forEach(opt => {
-               const btn = opt.querySelector('.difficulty-btn');
-               const diff = btn.dataset.difficulty;
-               const isCleared = gameState.clearedStages[diff];
-               if(isCleared) {
-                   btn.textContent = `${diff} (클리어!)`;
-                   btn.classList.add('btn-success');
-               } else {
-                   btn.textContent = diff;
-                   btn.classList.remove('btn-success');
-               }
-               btn.classList.toggle('disabled', (diff === '중' && !gameState.clearedStages['하']) || (diff === '상' && !gameState.clearedStages['중']));
-            });
-            
-            const existingChallengeBtn = optionsContainer.querySelector('.challenge-option');
-            if (existingChallengeBtn) existingChallengeBtn.remove();
-
-            if (gameState.isChallengeUnlocked) {
-                const challengeOption = document.createElement('div');
-                challengeOption.className = 'difficulty-option challenge-option';
-                challengeOption.innerHTML = `
-                  <button class="btn btn-challenge difficulty-btn" data-difficulty="도전자">도전자</button>
-                  <p class="difficulty-desc">최고 점수에 도전하세요!</p>
-                `;
-                optionsContainer.appendChild(challengeOption);
-            }
-
-            showScreen('difficulty-selection-screen');
-        }
-
-        function startGame(difficulty) {
-            gameState.difficulty = difficulty;
-            gameState.usedQuizIds = [];
-            gameState.isBossFight = false;
-            gameState.bossStage = 0;
-            gameState.questionsCorrect = 0;
-            gameState.hasUsedUltimate = false;
-
-            if (difficulty === '상') {
-                gameState.lives = 3;
-            } else if (difficulty === '도전자') {
-                gameState.lives = 3;
-                gameState.score = 0;
-            } else {
-                gameState.lives = 5;
-            }
-
-            monsterInfoDisplay.style.display = 'none';
-            updateStatus();
-            startDungeonAnimation();
-        }
-
-        function startDungeonAnimation() {
-            showScreen('game-screen');
-            if (!animationFrameId) {
-                gameLoop();
-            }
-            backgroundParticles = [];
-            
-            const onIntroEnd = () => {
-                const message = gameState.isBossFight ? "보스가 등장했다!" : "몬스터가 등장했습니다.";
-                showTemporaryMessage(message, 1000, spawnMonster);
-            };
-            
-            startAnimation('dungeon-intro', 2000, onIntroEnd);
-            makeEventSkippable(onIntroEnd, 2000);
-        }
-
-        function makeEventSkippable(callback, duration) {
-            if (gameState.skippableTimeoutId) clearTimeout(gameState.skippableTimeoutId);
-            
-            const onSkipCallback = () => {
-                if(gameState.isSkippable) { 
-                    gameState.isSkippable = false;
-                    clearTimeout(gameState.skippableTimeoutId);
-                    gameState.skippableTimeoutId = null;
-                    gameState.onSkip = null;
-                    clearAnimation();
-                    callback();
-                }
-            };
-
-            gameState.isSkippable = true;
-            gameState.onSkip = onSkipCallback;
-            gameState.skippableTimeoutId = setTimeout(onSkipCallback, duration);
-        }
-
-        function skipCurrentEvent() {
-            if (isInputLocked) return;
-            if (gameState.isSkippable && typeof gameState.onSkip === 'function') {
-                gameState.onSkip();
-            }
-        }
-
-        function spawnMonster() {
-            const difficulty = gameState.difficulty;
-            let monsterType;
-
-            if (gameState.isBossFight) {
-                monsterType = '보스';
-            } else if (difficulty === '도전자') {
-                const rand = Math.random();
-                if (rand < 0.4) monsterType = '중';
-                else if (rand < 0.8) monsterType = '상';
-                else monsterType = '보스';
-            } else {
-                const rand = Math.random() * 100;
-                if (difficulty === '하') {
-                    if (rand < 65) monsterType = '하'; else if (rand < 90) monsterType = '중'; else monsterType = '상';
-                } else if (difficulty === '중') {
-                    if (rand < 50) monsterType = '하'; else if (rand < 85) monsterType = '중'; else monsterType = '상';
-                } else { 
-                    if (rand < 40) monsterType = '하'; else if (rand < 70) monsterType = '중'; else monsterType = '상';
-                }
-            }
-            
-            gameState.currentMonster = { type: monsterType, imageKey: monsterType, hitProgress: 0, alpha: 1 };
-            startQuiz();
-        }
-
-        function startQuiz() {
-            let quizDifficulty;
-
-            if (gameState.difficulty === '도전자') {
-                const rand = Math.random();
-                if (rand < 0.4) quizDifficulty = '중';
-                else if (rand < 0.8) quizDifficulty = '상';
-                else quizDifficulty = '최상';
-            } else if (gameState.isBossFight) {
-                if (gameState.difficulty === '하') quizDifficulty = '상';
-                else quizDifficulty = '최상';
-            } else {
-                quizDifficulty = gameState.currentMonster.type;
-            }
-
-            monsterInfoDisplay.innerHTML = `몬스터 등급: ${gameState.currentMonster.type}<br>문제 난이도: ${quizDifficulty}`;
-            monsterInfoDisplay.style.display = 'block';
-
-            const availableQuizzes = quizzes.filter(q => q.difficulty === quizDifficulty && !gameState.usedQuizIds.includes(q.id));
-
-            if (availableQuizzes.length === 0) {
-                const quizzesOfDifficulty = quizzes.filter(q => q.difficulty === quizDifficulty).map(q => q.id);
-                gameState.usedQuizIds = gameState.usedQuizIds.filter(id => !quizzesOfDifficulty.includes(id));
-                const newAvailableQuizzes = quizzes.filter(q => q.difficulty === quizDifficulty && !gameState.usedQuizIds.includes(q.id));
-                if(newAvailableQuizzes.length === 0) {
-                    showMessage(`이 난이도의 모든 문제를 정복했습니다!`, prepareNextEncounter);
-                    return;
-                }
-                gameState.currentQuiz = newAvailableQuizzes[Math.floor(Math.random() * newAvailableQuizzes.length)];
-            } else {
-                gameState.currentQuiz = availableQuizzes[Math.floor(Math.random() * availableQuizzes.length)];
-            }
-            
-            gameState.usedQuizIds.push(gameState.currentQuiz.id);
-            displayQuiz();
-        }
-
-        function displayQuiz() {
-            const quiz = gameState.currentQuiz;
-            q2OptionsEl.innerHTML = '';
-            
-            if (quiz.type === 'single') {
-                quizCaseEl.innerHTML = `[문제]<br>${quiz.case}`;
-                q1OptionsEl.style.display = 'none';
-                q2OptionsEl.style.display = 'flex';
-                quiz.q2.forEach((option, index) => {
-                    const btn = document.createElement('button');
-                    btn.classList.add('btn', 'quiz-btn', 'q2-btn');
-                    btn.innerHTML = `${index + 1}. ${option}`;
-                    btn.dataset.answerIndex = index;
-                    q2OptionsEl.appendChild(btn);
-                });
-            } else { 
-                quizCaseEl.innerHTML = `[O/X 문제]<br>${quiz.case}`;
-                q1OptionsEl.style.display = 'flex';
-                q2OptionsEl.style.display = 'none';
-            }
-            showQuizContainer(true);
-            unlockInput();
-        }
-        
-        function displayQ2ForTwoStep() {
-            const quiz = gameState.currentQuiz;
-            q2OptionsEl.innerHTML = ''; 
-            const q2Question = quiz.q2_question || "위 O/X 판단에 대한 근거로 가장 적절한 것을 고르시오.";
-            quizCaseEl.innerHTML = `<b>[심화 문제]</b><br>${q2Question}`;
-            q1OptionsEl.style.display = 'none';
-            q2OptionsEl.style.display = 'flex';
-            
-            quiz.q2.forEach((option, index) => {
-                const btn = document.createElement('button');
-                btn.classList.add('btn', 'quiz-btn', 'q2-btn');
-                btn.innerHTML = `${index + 1}. ${option}`;
-                btn.dataset.answerIndex = index;
-                q2OptionsEl.appendChild(btn);
-            });
-            unlockInput();
-        }
-
-        function handleQ1Answer(answer) {
-            if (isInputLocked) return;
-            lockInput();
-            const quiz = gameState.currentQuiz;
-            const isCorrect = (answer === quiz.q1);
-
-            if (isCorrect) {
-                if (quiz.type === 'two-step') {
-                    displayQ2ForTwoStep();
-                } else { 
-                    handleCorrectAnswer();
-                }
-            } else {
-                handleIncorrectAnswer();
-            }
-        }
-
-        function handleQ2Answer(index) {
-            if (isInputLocked) return;
-            lockInput();
-            const isCorrect = (index == gameState.currentQuiz.answerIndex);
-
-            if (isCorrect) {
-                handleCorrectAnswer();
-            } else {
-                handleIncorrectAnswer();
-            }
-        }
-        
-        async function handleUltimateSkill() {
-            if (isInputLocked || gameState.hasUsedUltimate) return;
-
-            if (gameState.isBossFight && gameState.difficulty !== '도전자') {
-                showMessage("보스에게는 궁극기를 사용할 수 없습니다.");
-                return;
-            }
-
-            lockInput();
-            gameState.hasUsedUltimate = true;
-            updateStatus();
-            showQuizContainer(false);
-            monsterInfoDisplay.style.display = 'none';
-            
-            const skillName = ultimateSkillNames[gameState.player.class][gameState.player.level];
-            await showTemporaryMessage(skillName, 1500);
-
-            startAnimation('ultimate-attack', 4000, () => {
-                showTemporaryMessage("궁극의 기술로 몬스터를 물리쳤다!", 1500, () => {
-                    const quiz = gameState.currentQuiz;
-                    const explanationText = `<b>[문제: ${quiz.case}]</b><br><br><b>정답 해설:</b><br>${quiz.explanation || "해설 정보가 없습니다."}`;
-                    showMessage(explanationText, prepareNextEncounter);
-                });
-            });
-        }
-
-        function handleCorrectAnswer() {
-           if (gameState.difficulty === '도전자') {
-                const scoreMap = {'하': 10, '중': 20, '상': 30, '보스': 50, '최상': 50};
-                gameState.score += scoreMap[gameState.currentQuiz.difficulty] || 20;
-                if (gameState.score >= 200 && gameState.player.level < 5) {
-                    gameState.player.level = 5;
-                    showTemporaryMessage("레벨 5 달성! 파멸적인 힘이 느껴진다!", 2000);
-                }
-           }
-            gameState.questionsCorrect++;
-            updateStatus();
-            showQuizContainer(false);
-            monsterInfoDisplay.style.display = 'none';
-            
-            startAnimation('attack', 1500, () => {
-                let message = "몬스터를 물리쳤다!";
-                if(gameState.isBossFight) {
-                    if (gameState.difficulty === '하' || gameState.difficulty === '중') {
-                        message = "대단하군 용사여.. 두고보자!";
-                    } else if (gameState.difficulty === '상') {
-                        if (gameState.bossStage === 0) {
-                            gameState.bossStage = 1;
-                            showTemporaryMessage("아직 쓰러지지 않는다. 다시 덤비거라 용사여!", 1500, spawnMonster);
-                            return;
-                        } else {
-                            message = "정말 대단하구나... 나의 패배를 인정한다...";
-                        }
-                    }
-                }
-                showTemporaryMessage(message, 1500, () => {
-                    if (gameState.isBossFight) {
-                        handleStageClear();
-                    } else {
-                        prepareNextEncounter();
-                    }
-                });
-            });
-        }
-        
-        function handleIncorrectAnswer() {
-            showQuizContainer(false);
-            monsterInfoDisplay.style.display = 'none';
-            gameState.lives--;
-            updateStatus();
-            
-            startAnimation('monster-attack', 1200, () => {
-                showTemporaryMessage("몬스터의 공격을 막지 못했다!", 1200, () => {
-                    const quiz = gameState.currentQuiz;
-                    let explanationText = `<b>오답입니다!</b><br><br><b>정답 해설:</b><br>${quiz.explanation || "해설 정보가 없습니다."}`;
-                    
-                    const nextAction = () => {
-                        if (gameState.lives <= 0) {
-                           if (gameState.difficulty === '도전자') {
-                               showChallengeResult();
-                           } else {
-                               startGameOverAnimation();
-                           }
-                        } else {
-                            startDungeonAnimation();
-                        }
-                    };
-                    showMessage(explanationText, nextAction);
-                });
-            });
-        }
-
-        function startGameOverAnimation() {
-            gameOverDebris = [];
-            for(let i=0; i<50; i++) {
-                gameOverDebris.push({
-                    x: Math.random() * canvas.width, y: -Math.random() * canvas.height,
-                    width: Math.random() * 40 + 20, height: Math.random() * 30 + 15,
-                    vx: (Math.random() - 0.5) * 5, vy: Math.random() * 5 + 2,
-                    rotation: 0, vr: (Math.random() - 0.5) * 0.1,
-                    color: `rgb(${100 + Math.random()*30}, ${90 + Math.random()*30}, ${90 + Math.random()*30})`
-                });
-            }
-            startAnimation('game-over', 2500, () => {
-                showMessage("GAME OVER", setupDifficultyScreen);
-            });
-        }
-        
-        function prepareNextEncounter() {
-            clearAnimation();
-            unlockInput();
-
-            if (gameState.difficulty !== '도전자' && Math.random() < 0.3) {
-                if (gameState.difficulty === '상') gameState.lives = Math.min(3, gameState.lives + 1);
-                else gameState.lives = Math.min(5, gameState.lives + 1);
-            }
-            updateStatus();
-
-            if (gameState.difficulty === '도전자') {
-               startDungeonAnimation();
-               return;
-            }
-
-            const bossThresholds = { '하': 5, '중': 8, '상': 10 };
-            const correctAnswers = gameState.questionsCorrect;
-            let bossConditionMet = correctAnswers >= bossThresholds[gameState.difficulty];
-            
-            if (bossConditionMet) {
-                gameState.isBossFight = true;
-                gameState.bossStage = 0;
-                startDungeonAnimation();
-            } else {
-                startDungeonAnimation();
-            }
-        }
-        
-        function handleStageClear() {
-            gameState.clearedStages[gameState.difficulty] = true;
-            if (gameState.player.level < 4) {
-               gameState.player.level++;
-            }
-            
-            effectParticles = [];
-            for (let i = 0; i < 150; i++) {
-                effectParticles.push({
-                    type: 'confetti', x: Math.random() * canvas.width, y: Math.random() * -canvas.height,
-                    vx: Math.random() * 6 - 3, vy: Math.random() * 5 + 3,
-                    size: Math.random() * 10 + 5, color: `hsl(${Math.random() * 360}, 100%, 70%)`,
-                    rotation: Math.random() * 360, life: 1
-                });
-            }
-            
-            startAnimation('game-clear', 3000, () => {
-                if (gameState.clearedStages['하'] && gameState.clearedStages['중'] && gameState.clearedStages['상']) {
-                    gameState.isChallengeUnlocked = true;
-                    gameState.player.level = 4;
-                    startGrandFinale();
-                } else {
-                    saveGame(false);
-                    showMessage(`난이도 '${gameState.difficulty}' 클리어!<br>레벨 업! (현재 LV.${gameState.player.level})`, setupDifficultyScreen);
-                }
-            });
-        }
-
-        function startGrandFinale() {
-            effectParticles = [];
-            for (let i = 0; i < 200; i++) {
-                effectParticles.push({
-                    type: 'confetti', x: Math.random() * canvas.width, y: Math.random() * -canvas.height,
-                    vx: Math.random() * 6 - 3, vy: Math.random() * 5 + 3,
-                    size: Math.random() * 10 + 5, color: `hsl(${Math.random() * 360}, 100%, 70%)`,
-                    rotation: Math.random() * 360, life: 1
-                });
-            }
-            startAnimation('grand-finale', 6000, () => {
-                saveGame(false);
-                showMessage("지식의 서를 얻고 세상의 모든 지식을 손에 넣었습니다. 축하합니다!", setupDifficultyScreen);
-            });
-        }
-
-        function showChallengeResult() {
-           saveGame(false);
-           let resultText = `
-               <h2>도전 결과</h2>
-               <p><b>${gameState.player.name}</b>님의 최종 점수는 <b>${gameState.score}점</b> 입니다!</p>
-               <p>방금 기록이 명예의 전당(서버)에 기록되었습니다.</p>
-               <div class="capture-guide">
-                   <h4>결과 화면 캡처 안내</h4>
-                   <ul>
-                       <li><b>📱 아이폰:</b> 측면 버튼 + 음량 높이기 버튼 동시 누르기</li>
-                       <li><b>📱 안드로이드:</b> 전원 버튼 + 음량 낮추기 버튼 동시 누르기</li>
-                       <li><b>💻 윈도우:</b> 윈도우 키 + Shift + S</li>
-                       <li><b>💻 맥:</b> Shift + Command + 4</li>
-                   </ul>
-               </div>
-           `;
-           showMessage(resultText, setupDifficultyScreen);
-        }
-
         // ==================================================================
-        // 렌더링 (그리기) 함수 
+        // 렌더링(그리기) 파트 
         // ==================================================================
-        function updateStatus() {
-            document.getElementById('status-name').textContent = gameState.player.name;
-            document.getElementById('status-level').textContent = gameState.player.level;
-            document.getElementById('status-lives').textContent = '❤️'.repeat(gameState.lives);
-            
-            ultimateSkillBtn.classList.toggle('disabled', gameState.hasUsedUltimate);
-            
-            updateProgressDisplay();
-        }
-        
-        function updateProgressDisplay() {
-            let progressText = ``;
-            if (gameState.difficulty === '도전자') {
-                progressText = `점수: ${gameState.score}`;
-            } else {
-                const bossThresholds = { '하': 5, '중': 8, '상': 10 };
-                const needed = bossThresholds[gameState.difficulty];
-                const remaining = Math.max(0, needed - gameState.questionsCorrect);
-                progressText = `정답: ${gameState.questionsCorrect}`;
-                if (!gameState.isBossFight && !gameState.clearedStages[gameState.difficulty]) {
-                    progressText += ` | 보스까지: ${remaining}문제`;
-                }
-            }
-            progressDisplay.textContent = progressText;
-        }
-
-        function lockInput() { isInputLocked = true; }
-        function unlockInput() { isInputLocked = false; }
-
-        function showMessage(text, callback) {
-            lockInput();
-            messageText.innerHTML = text;
-            messageModal.style.display = 'flex';
-            
-            const newOkBtn = messageOkBtn.cloneNode(true);
-            messageOkBtn.parentNode.replaceChild(newOkBtn, messageOkBtn); 
-            messageOkBtn = newOkBtn; 
-
-            messageOkBtn.onclick = () => {
-                messageModal.style.display = 'none';
-                unlockInput();
-                if (callback) callback();
-            };
-        }
-        
-        function showTemporaryMessage(text, duration, callback) {
-            return new Promise(resolve => {
-                lockInput();
-                tempMessageOverlay.textContent = text;
-                tempMessageOverlay.classList.add('visible');
-                
-                setTimeout(() => {
-                    tempMessageOverlay.classList.remove('visible');
-                    unlockInput();
-                    if (callback) callback();
-                    resolve();
-                }, duration);
-            });
-        }
-
-        function resizeCanvas() {
-            const container = document.getElementById('game-screen');
-            if(container) {
-                canvas.width = container.clientWidth;
-                canvas.height = container.clientHeight;
-            }
-        }
-        
         function drawDungeonBackground(deltaTime) {
             const difficulty = gameState.difficulty;
             const isBoss = gameState.isBossFight;
@@ -2133,7 +1542,7 @@
             
             if (anim.type === 'monster-attack') {
                 const progress = anim.progress / anim.duration;
-                if (progress > 0.4 && progress < 0.7) { // Impact window
+                if (progress > 0.4 && progress < 0.7) { 
                     const shakeProgress = Math.sin((progress - 0.4) / 0.3 * Math.PI);
                     xPos += (Math.random() - 0.5) * 20 * shakeProgress;
                     yPos += (Math.random() - 0.5) * 10 * shakeProgress;
@@ -2383,7 +1792,7 @@
                          if (progress > 0.1 && progress < 0.9) drawRandomSlash(7, 350, 'cyan');
                          if (progress > 0.6) drawFinalSlash(progress, 'cyan', 500, true, true);
                      }
-                } else { // Lv 5: 카오스 엣지
+                } else { // Lv 5
                     const p1 = Math.min(1, progress / 0.7);
                     const p2 = Math.max(0, (progress - 0.5) / 0.5);
                     const p3 = Math.max(0, (progress - 0.8) / 0.2);
@@ -2420,13 +1829,13 @@
                         drawMultiLightning                
                     ];
                     effects[level - 1](progress);
-                } else if (level === 4) { // Lv 4 
+                } else if (level === 4) { 
                     drawMeteorShower(progress);
                     const finalMeteorProgress = Math.max(0, (progress - 0.7) / 0.3);
                     if (finalMeteorProgress > 0) {
                         drawFinalMeteor(finalMeteorProgress);
                     }
-                } else { // Lv 5
+                } else { 
                     drawGrandElemental(progress);
                     const explosionProgress = Math.max(0, (progress - 0.8) / 0.2);
                     if (explosionProgress > 0) {
@@ -2981,6 +2390,9 @@
             });
         }
         
+        // ==================================================================
+        // 메인 게임 루프 시작
+        // ==================================================================
         let lastTime = 0;
         function gameLoop(timestamp) {
             if (!gameState || gameState.currentScreen !== 'game-screen') {
