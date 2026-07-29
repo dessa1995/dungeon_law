@@ -581,7 +581,7 @@
             z-index: 110;
             opacity: 0;
             visibility: hidden;
-            pointer-events: none; /* 클릭 방해 방지용 추가 */
+            pointer-events: none;
             transition: opacity 0.3s ease, visibility 0.3s ease;
             text-shadow: 0 0 10px #000;
             white-space: nowrap;
@@ -925,7 +925,7 @@
         // ==================================================================
         // 💡 백엔드(구글 앱스 스크립트) API 주소 연결
         // ==================================================================
-        const API_URL = "https://script.google.com/macros/s/AKfycbx3Lr8CNlUoY2CoddoPybMnwggwT37V_3qQ4P73LFoiuR6qdmWJK2oKlxrdg5Xm336P/exec";
+        const API_URL = "https://script.google.com/macros/s/AKfycbyxJ5fZBBQtxRVp_CjrZGQQ_QgZkpumMQ3w3rq5iMBFWju-5yJw02NA0KR-D_x9f08j/exec";
 
         // ==================================================================
         // 전역 변수 및 DOM 요소
@@ -988,9 +988,6 @@
         let isInputLocked = false;
         let animationFrameId;
 
-        // ==================================================================
-        // 퀴즈 데이터 전체 보존
-        // ==================================================================
         const quizzes = [
             { id: 101, type: 'one-step-ox', difficulty: '하', case: "형법은 범죄와 그에 대한 법적 효과로서 형벌과 보안 처분을 규정한 모든 법 규범을 의미한다.", q1: 'O', explanation: "형법은 넓은 의미에서 범죄와 그에 대한 법적 효과로서 형벌과 보안 처분을 규정한 모든 법 규범의 총체를 의미한다." },
             { id: 102, type: 'one-step-ox', difficulty: '하', case: "실질적 의미의 형법은 ‘형법’이라는 명칭이 붙여진 법률만을 의미한다.", q1: 'X', explanation: "단순히 '형법'이라는 이름의 법률을 지칭하는 것은 형식적 의미의 형법이다." },
@@ -1093,14 +1090,17 @@
             { id: 415, type: 'two-step', difficulty: '최상', case: "자구행위는 법정 절차를 밟을 시간적 여유가 전혀 없는 경우에만 인정된다.", q1: 'O', q2_question: "병은 도망치는 절도범을 뒤쫓아 건물 안으로 몰고, 밖에서 문을 잠가 경찰을 기다렸다. 이 행위는?", q2: ["감금죄 성립", "과잉방위", "자구행위로 위법성 조각", "긴급피난"], answerIndex: 2, explanation: "청구권의 실현 및 보호를 위한 불가피한 조치로 자구행위로 인정될 수 있다." } 
         ];
 
-        // 💡 백엔드(구글 스크립트)와 통신하는 핵심 함수
+        // 💡 백엔드(구글 스크립트)와 통신하는 핵심 함수 (CORS 우회 적용)
         async function fetchAPI(action, data = {}) {
             const payload = { action: action, ...data };
             try {
+                // x-www-form-urlencoded 방식으로 데이터를 변환하여 전송 (CORS 차단 방지)
                 const response = await fetch(API_URL, {
                     method: 'POST',
-                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-                    body: JSON.stringify(payload)
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: "payload=" + encodeURIComponent(JSON.stringify(payload))
                 });
                 return await response.json();
             } catch (error) {
@@ -1110,10 +1110,9 @@
         }
 
         // ==================================================================
-        // 이벤트 리스너 통합 설정
+        // 화면 로직 및 이벤트 리스너
         // ==================================================================
         function setupEventListeners() {
-            // 화면 전환 및 BGM
             document.getElementById('story-screen').addEventListener('click', () => { 
                 showScreen('start-screen'); 
             });
@@ -1130,7 +1129,6 @@
             document.getElementById('ranking-btn').addEventListener('click', openRankingScreen);
             document.getElementById('close-ranking-btn').addEventListener('click', () => showScreen('start-screen'));
 
-            // 로그인 & 회원가입
             document.getElementById('do-login-btn').addEventListener('click', async () => {
                 const nick = document.getElementById('login-nickname').value.trim();
                 const pw = document.getElementById('login-password').value.trim();
@@ -1188,7 +1186,6 @@
                 }
             });
 
-            // 랭킹 검색
             document.getElementById('search-ranking-btn').addEventListener('click', async () => {
                 const nickname = document.getElementById('search-nickname').value.trim();
                 if (!nickname) return;
@@ -1204,7 +1201,6 @@
                 }
             });
 
-            // 캐릭터 선택 & 난이도 화면
             document.querySelectorAll('#character-selection-screen .char-card').forEach(card => {
                 card.addEventListener('click', () => {
                     document.querySelectorAll('#character-selection-screen .char-card').forEach(c => c.classList.remove('selected'));
@@ -1241,7 +1237,6 @@
                 showScreen('character-selection-screen');
             });
 
-            // 인게임 동작
             document.getElementById('back-to-difficulty-btn').addEventListener('click', () => { 
                 saveGame(false); 
                 setupDifficultyScreen(); 
@@ -1309,14 +1304,11 @@
             });
         }
 
-        // ==================================================================
-        // 화면 로직 및 게임 플로우
-        // ==================================================================
         window.addEventListener('load', async () => {
-            setupEventListeners(); // 모든 버튼 클릭 권한 활성화
-            await loadAssets();    // 에셋 로딩 대기
-            initGame();            // 스토리 화면 오픈
-            resizeCanvas();        // 화면 크기 맞춤
+            setupEventListeners();
+            await loadAssets();
+            initGame();
+            resizeCanvas();
         });
         
         window.addEventListener('resize', resizeCanvas);
@@ -1403,7 +1395,7 @@
                 const playPromise = bgmAudioElement.play();
                 if (playPromise !== undefined) {
                     playPromise.catch(error => {
-                        console.log("BGM 자동재생이 차단되었습니다:", error);
+                        console.log("BGM 자동재생 대기:", error);
                     });
                 }
             }
