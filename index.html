@@ -867,7 +867,7 @@
              </div>
         </div>
 
-        <!-- 7. 인게임(전투) 화면 -->
+        <!-- 7. 인게임 화면 -->
         <div id="game-screen" class="screen">
             <div id="status-bar">
                 <div id="player-info-left">
@@ -969,7 +969,7 @@
         // ==================================================================
         // 💡 구글 웹앱 API 주소
         // ==================================================================
-        const API_URL = "https://script.google.com/macros/s/AKfycbzWfm4eKJYeh58l1cKpJ-ZxbVeYBVzEICG7h2cJTUPJEbSBtm4RIMWK-TqHcU3AcrA/exec";
+        const API_URL = "https://script.google.com/macros/s/AKfycbyxJ5fZBBQtxRVp_CjrZGQQ_QgZkpumMQ3w3rq5iMBFWju-5yJw02NA0KR-D_x9f08j/exec";
 
         // ==================================================================
         // 전역 변수 및 DOM 요소
@@ -1022,7 +1022,7 @@
 
         const ultimateSkillNames = {
             '전사': { 1: "도약 베기", 2: "회전 베기", 3: "폭풍 가르기", 4: "검의 비", 5: "카오스 엣지: 디멘션 브레이크" },
-            '마법사': { 1: "불기둥", 2: "얼음 폭풍", 3: "뇌우", 4: "유성우", 5: "그랜드 엘리멘탈 블래스트" }
+            '마법사': { 1: "에너지 폭풍", 2: "얼음 폭풍", 3: "뇌우", 4: "유성우", 5: "그랜드 엘리멘탈 블래스트" }
         };
 
         let gameState = {};
@@ -1096,7 +1096,7 @@
             
             { id: 301, type: 'two-step', difficulty: '상', case: "형법의 규범적 기능은 국민에게 행위의 준칙으로 삼도록 하고, 법관에게는 범죄 성립 여부를 판단하는 평가 규범으로서의 역할을 한다.", q1: 'O', q2_question: "다음은 어떤 사람이 법정에서 '범죄인 줄 몰랐다'고 주장했으나 처벌받은 사례입니다. 이 사례를 통해 알 수 있는 형법의 기능으로 가장 적절한 것은?", q2: ["보호적 기능", "보장적 기능", "규범적 기능", "보충적 기능"], answerIndex: 2, explanation: "국민이 준수해야 할 행위 준칙을 제시하고, 법관에게는 판단 기준을 제공하는 규범적 기능에 해당한다." },
             { id: 302, type: 'two-step', difficulty: '상', case: "형법 제243조는 '음란한 문서, 도화, 필름, 그 밖의 물건을 공공연하게 전시한 자'를 처벌하도록 규정하고 있으나, '음란'의 개념이 명확히 정의되어 있지 않다. 이에 따라 A가 성인용 만화를 출판한 사건에서, 법원은 해당 만화가 예술성과 표현의 자유를 고려할 때 명백한 음란물로 단정하기 어렵고, '음란'이라는 용어 자체가 불명확하다는 이유로 무죄를 선고하였다. 법원의 판단은 죄형법정주의 원칙에 어긋나는가?", q1: 'X', q2_question: "이 사례에서 법원의 판단 근거가 된 죄형 법정주의의 원칙은 무엇입니까?", q2: ["관습 형법 금지의 원칙", "소급효 금지의 원칙", "명확성의 원칙", "유추 해석 금지의 원칙"], answerIndex: 2, explanation: "'음란'이라는 용어가 모호하여 법 적용이 어려웠던 사례로, 죄형 법정주의의 명확성 원칙을 보여준다." },
-            { id: 303, type: 'two-step', difficulty: '상', case: "범죄가 성립하려면 고의가 요구되며, 과실에 의한 행위는 특별한 규정이 있는 경우에만 처벌된다. 따라서 과실에 의한 행위는 어떤 경우에도 형법상 범죄가 성립하지 않는다.", q1: 'X', q2_question: "다음 중 과실범 처벌 규정이 없어 범죄로 성립하지 않는 사례는?", q2: ["자기의 물건과 비슷한 타인의 물건을 고의로 훔치려 한 경우", "실수로 타인의 물건 파손했으나 과실범 처벌 규정이 없는 경우", "법률상 금지된 행위임을 알면서 저지른 경우", "금전적 이득을 목적으로 타인을 속여 재산을 편취한 경우"], answerIndex: 1, explanation: "과실에 의한 행위라도 법에 명시된 처벌 규정이 있어야만 범죄로 성립한다." },
+            { id: 303, type: 'two-step', difficulty: '상', case: "범죄가 성립하려면 고의가 요구되며, 과실에 의한 행위는 특별한 규정이 있는 경우에만 처벌된다. 따라서 과실에 의한 행위는 어떤 경우에도 형법상 범죄가 성립하지 않는다.", q1: 'X', q2_question: "다음 중 과실범 처벌 규정이 없어 범죄로 성립하지 않는 사례는?", q2: ["자기의 물건과 비슷한 타인의 물건을 고의로 훔치려 한 경우", "실수로 타인의 물건을 파손했으나 과실범 처벌 규정이 없는 경우", "법률상 금지된 행위임을 알면서 저지른 경우", "금전적 이득을 목적으로 타인을 속여 재산을 편취한 경우"], answerIndex: 1, explanation: "과실에 의한 행위라도 법에 명시된 처벌 규정이 있어야만 범죄로 성립한다." },
             { id: 304, type: 'two-step', difficulty: '상', case: "피해자의 승낙이 있다고 하여 모든 경우에 위법성이 조각되는 것은 아니다. 따라서 피해자의 승낙이 있는 경우 위법성은 항상 조각된다.", q1: 'X', q2_question: "다음 중 피해자의 승낙에도 불구하고 위법성이 조각되지 않아 범죄가 성립하는 사례는?", q2: ["의사의 수술로 상해를 입힌 경우", "채무자가 동의했지만 신체 일부를 취득한 경우", "조난자를 위해 타인의 집에 침입한 경우", "15세 미성년자의 성적 자기결정권 동의가 있는 경우"], answerIndex: 1, explanation: "사회 통념상 용인될 수 없는 경우(예: 신체 일부를 강제로 취득)는 승낙이 있어도 위법성이 조각되지 않는다." },
             { id: 305, type: 'two-step', difficulty: '상', case: "형벌의 종류 중 재산형에는 벌금, 과료, 몰수가 포함된다.", q1: 'O', q2_question: "다음 중 재산형에 해당하지 않는 형벌은?", q2: ["벌금 5,000만 원", "과료 30,000원", "몰수", "자격 정지 1년"], answerIndex: 3, explanation: "자격 정지는 인격이나 자격을 제한하는 명예형이다." },
             { id: 306, type: 'two-step', difficulty: '상', case: "소년 보호 처분에는 보호 관찰, 소년원 송치 등이 포함되며, 이는 형벌이 아닌 보호 처분의 일종이다.", q1: 'O', q2_question: "다음 중 「소년법」상 소년에게 사형 또는 무기형이 선고될 경우 적용되는 특칙은?", q2: ["사형 또는 무기형이 그대로 집행된다.", "사형 또는 무기형 대신 15년의 유기 징역으로 한다.", "23세가 될 때까지 소년 교도소에 수용된다.", "소년 보호 처분으로 소년원에 송치된다."], answerIndex: 1, explanation: "형법상 만 18세 미만인 소년에게는 사형·무기형을 선고할 수 없으며, 유기징역 15년으로 대체된다." },
@@ -1106,7 +1106,7 @@
             { id: 310, type: 'two-step', difficulty: '상', case: "형법에서는 두 개 이상의 같은 종류의 형(예: 징역형)에 대해 형을 정할 때, 가장 무거운 죄의 형에 그 형의 절반까지를 더해 처벌할 수 있도록 하고 있다.", q1: 'O', q2_question: "甲은 특수절도죄(최고 징역 5년)와 사기죄(최고 징역 3년)를 함께 저질렀다. 두 범죄 모두 징역형으로 가능한 같은 종류의 형벌이 부과될 수 있다. 형법 규정에 따라 甲이 받을 수 있는 최대 징역 형량은?", q2: ["5년", "7년 6개월", "8년", "50년"], answerIndex: 1, explanation: "두 범죄가 모두 징역형이므로 같은 종류의 형에 해당 단일 범죄에 해당한다. 이 경우 형법상 가장 무거운 죄인 특수절도죄(최고 5년)에 그 절반인 2년 6개월을 더해 최대 7년 6개월까지 처벌할 수 있다." },
             { id: 311, type: 'two-step', difficulty: '상', case: "갑은 밤늦게 귀가하던 중 자신에게 흉기를 휘두르며 금품을 요구하는 강도 을을 만났다. 갑은 을의 공격을 막기 위해 우산으로 반격했고, 이로 인해 을은 골절상을 입었다. 이 경우 갑의 행위는 범죄로 성립한다.", q1: 'X', q2_question: "위 사례에서 갑의 행위에 해당하는 위법성 조각 사유는 무엇인가?", q2: ["긴급 피난", "정당방위", "자구 행위", "정당 행위"], answerIndex: 1, explanation: "현재의 부당한 침해에 대한 자기방어이므로 정당방위에 해당한다." },
             { id: 312, type: 'two-step', difficulty: '상', case: "등산객 갑은 산에서 멧돼지 떼를 만나 위협을 느끼고, 옆에 있던 다른 등산객 을의 텐트 뒤로 몸을 숨겼다. 그 과정에서 텐트가 손상되었다. 이 경우 갑의 행위는 형법상 정당화될 수 있다.", q1: 'O', q2_question: "위 사례에서 갑의 행위에 해당하는 위법성 조각 사유는 무엇인가?", q2: ["정당방위", "긴급 피난", "자구 행위", "정당 행위"], answerIndex: 1, explanation: "자기 법익에 대한 현재의 위난을 피하기 위한 상당한 이유 있는 행위로서 긴급피난에 해당한다." },
-            { id: 313, type: 'two-step', difficulty: '상', case: "택배 기사인 갑은 졸음을 이기지 못해 법정 제한 속도를 일시 초과하며 운전했다. 인명 피해는 없었지만 도로교통법 위반으로 단속되었다. 이 경우 갑의 행위는 정당한 사유에 의해 위법성이 조각된다.", q1: 'X', q2_question: "위 사례에서 갑의 행위가 위법성 조각 사유에 해당한다고 보기 어려운 가장 적절 이유는?", q2: ["정당방위 요건을 충족하지 못했기 때문이다.", "고의가 없었기 때문이다.", "사회 상규에 어긋나는 행위이기 때문이다.", "법률보다 판례가 우선 적용되기 때문이다."], answerIndex: 2, explanation: "정당 행위로 보기 위해서는 사회 상규에 부합해야 하나, 해당 행위는 이에 어긋난다." },
+            { id: 313, type: 'two-step', difficulty: '상', case: "택배 기사인 갑은 졸음을 이기지 못해 법정 제한 속도를 일시 초과하며 운전했다. 인명 피해는 없었지만 도로교통법 위반으로 단속되었다. 이 경우 갑의 행위는 정당한 사유에 의해 위법성이 조각된다.", q1: 'X', q2_question: "위 사례에서 갑의 행위가 위법성 조각 사유에 해당한다고 보기 어려운 가장 적절한 이유는?", q2: ["정당방위 요건을 충족하지 못했기 때문이다.", "고의가 없었기 때문이다.", "사회 상규에 어긋나는 행위이기 때문이다.", "법률보다 판례가 우선 적용되기 때문이다."], answerIndex: 2, explanation: "정당 행위로 보기 위해서는 사회 상규에 부합해야 하나, 해당 행위는 이에 어긋난다." },
             { id: 314, type: 'two-step', difficulty: '상', case: "채무자 갑은 도망 중이었다. 채권자 을은 우연히 길에서 갑을 마주쳐 도망을 막기 위해 그의 가방을 붙잡았고, 이로 인해 가방이 파손되었다. 이 경우 을의 행위는 위법성이 조각된다.", q1: 'O', q2_question: "위 사례에서 을의 행위에 해당하는 위법성 조각 사유는 무엇인가?", q2: ["정당방위", "긴급 피난", "자구 행위", "정당 행위"], answerIndex: 2, explanation: "국가의 구제를 기대하기 어려운 상황에서 청구권 실현을 위한 불가피한 자구 행위다." },
             { id: 315, type: 'two-step', difficulty: '상', case: "경찰청은 불량 식재료를 유통한 식품 업체에 대한 정보를 수사 후 국민 건강 보호 차원에서 언론에 공표하였다. 이로 인해 업체의 명예는 실추되었다. 이 경우 경찰청의 행위는 위법성이 인정된다.", q1: 'X', q2_question: "위 사례에서 경찰청의 행위에 해당하는 위법성 조각 사유는 무엇인가?", q2: ["정당방위", "긴급 피난", "자구 행위", "정당 행위"], answerIndex: 3, explanation: "공익 목적과 진실성, 필요성이 인정되므로 정당 행위로서 위법성이 조각된다." },
             { id: 316, type: 'two-step', difficulty: '상', case: "야간 근무 중인 경비원 갑은 침입자를 제지하던 중 반격을 받고, 시설 보호를 위해 물리력을 사용해 제압하였다. 침입자는 경미한 상처를 입었다. 이 경우 갑의 행위는 형법상 범죄로 성립한다.", q1: 'X', q2_question: "위 사례에서 갑의 행위에 해당하는 위법성 조각 사유는 무엇인가?", q2: ["긴급 피난", "정당방위", "자구 행위", "정당 행위"], answerIndex: 1, explanation: "현재의 부당한 침해에 대응한 자기방어로서 정당방위에 해당한다." },
@@ -1123,7 +1123,7 @@
 
             { id: 401, type: 'two-step', difficulty: '최상', case: "오늘날 강조되는 실질적 죄형 법정주의는 입법자가 부당한 법률을 제정하는 것까지도 제한하여 국민의 자유와 권리를 보호하고자 한다.", q1: 'O', q2_question: "다음은 조선시대 형벌에 대한 설명입니다. 이를 통해 알 수 있는 현대적 죄형 법정주의 원칙의 중요성은 무엇입니까? <br>\"조선시대에는 성문법 외에 정령이나 사회 통념에 따라 형벌이 부과되기도 했다.\"", q2: ["예측 가능하고 명확한 법률의 중요성", "형벌과 범죄의 비례성 원칙의 중요성", "행위 당시의 법률을 적용하는 행위시법주의의 중요성", "국가 형벌권 남용을 막기 위한 적법 절차의 원칙의 중요성"], answerIndex: 0, explanation: "조선시대의 사례는 성문법 외의 기준으로 형벌이 부과될 수 있었음을 보여준다. 이는 국민이 어떤 행위가 처벌 대상이 되는지 예측할 수 있도록 법률이 명확해야 한다는 현대의 명확성의 원칙과 관습 형법 금지의 원칙의 중요성을 부각시킨다." },
             { id: 402, type: 'two-step', difficulty: '최상', case: "보안처분도 형사 제재이므로 형벌과 같이 부과 요건 등에 있어서 적법절차의 원리가 준수되어야 한다.", q1: 'O', q2_question: "다음 중 형벌과 보안처분에 대한 설명으로 옳은 것을 고르시오.", q2: ["징역형은 재산형에 해당한다.", "벌금형은 일정 기간 신체의 자유를 박탈하는 형벌이다.", "보안 처분은 범죄자의 사회적 위험성을 전제로 특별 예방의 관점에서 부과된다.", "사형은 무기 징역형보다 범죄자에 대한 법익 침해의 정도가 작다."], answerIndex: 2, explanation: "보안 처분은 행위자의 사회적 위험성과 재범의 우려를 전제로 특별 예방의 관점에서 부과된다. ① 징역형은 자유형, ② 벌금형은 재산형, ④ 사형은 가장 큰 법익 침해를 가하는 형벌이다." },
-            { id: 403, type: 'two-step', difficulty: '최상', case: "형사 절차에서 유죄 판결이 확정되기 전까지는 피의자와 피고인을 무죄로 추정하는 것이 원칙이다.", q1: 'O', q2_question: "다음 중 무죄 추정의 원칙이 적용된 것으로 볼 수 없는 상황은?", q2: ["언론이 피의자에 대해 '범죄자'라는 표현을 사용하지 않고 '피의자' 또는 '혐의자'로 보도하는 것", "경찰 수사가 진행 중인 공무원에 대해 유죄 판결이 나기 전에 직위 해제하고 언론에 실명과 사진을 공개한 경우", "피고인이 범죄 혐의로 수사를 받더라도 불구속으로 수사하는 것을 원칙으로 하는 것", "피고인이 재판 중에도 변호인의 조력을 받을 권리를 보장받는 것"], answerIndex: 1, explanation: "무죄 추정의 원칙은 유죄 판결이 확정되기 전까지는 피의자나 피고인을 무죄로 간주해야 한다는 원칙이다. 유죄가 확정되기 전부터 공무원을 범죄자로 취급하여 언론에 보도하는 것은 무죄 추정의 원칙의 취지에 어긋난다." },
+            { id: 403, type: 'two-step', difficulty: '최상', case: "형사 절차에서 유죄 판결이 확정되기 전까지는 피의자와 피고인을 무죄로 추정하는 것이 원칙이다.", q1: 'O', q2_question: "다음 중 무죄 추정의 원칙이 적용된 것으로 볼 수 없는 상황은?", q2: ["언론이 피의자에 대해 '범죄자'라는 표현을 사용하지 않고 '피의자' 또는 '혐의자'로 보도하는 것", "경찰 수사가 진행 중인 공무원에 대해 유죄 판결이 나기 전에 직위 해제하고 언론에 실명과 사진을 공개한 경우", "피고인이 범죄 혐혐의로 수사를 받더라도 불구속으로 수사하는 것을 원칙으로 하는 것", "피고인이 재판 중에도 변호인의 조력을 받을 권리를 보장받는 것"], answerIndex: 1, explanation: "무죄 추정의 원칙은 유죄 판결이 확정되기 전까지는 피의자나 피고인을 무죄로 간주해야 한다는 원칙이다. 유죄가 확정되기 전부터 공무원을 범죄자로 취급하여 언론에 보도하는 것은 무죄 추정의 원칙의 취지에 어긋난다." },
             { id: 404, type: 'two-step', difficulty: '최상', case: "보안 처분은 형벌과 달리 과거의 불법에 대한 책임에 기초하며, 그 부과에 죄형 법정주의의 소급효 금지 원칙이 예외 없이 적용된다.", q1: 'X', q2_question: "다음 중 소년법상 보호처분으로서 소년의 사회 복귀 및 교화를 목적으로 하는 시설에 수용되는 사례는?", q2: ["만 17세의 甲이 심각한 범죄로 일반 형사 법원에서 징역형을 선고받고 소년 교도소에 수용된 경우", "만 16세의 乙이 가정 법원 소년부로부터 '장기 소년원 송치' 처분을 받고 소년원에 수용된 경우", "만 20세의 丙이 음주운전으로 집행 유예를 선고받고 사회봉사 명령을 받은 경우", "만 14세의 丁이 심신상실 상태에서 살인죄를 저질러 치료 감호 시설에 수용된 경우"], answerIndex: 1, explanation: "보안 처분은 장래의 위험성을 예방하기 위한 조치로 소급효 금지 원칙이 적용되지 않는다. 소년원은 소년 보호 처분을 받은 소년을 교정 교육을 통해 사회 복귀와 교화를 목적으로 수용하는 시설이다." },
             { id: 405, type: 'two-step', difficulty: '최상', case: "강제 처분은 실체적 진실을 발견하고 형벌권을 실현하기 위해 불가피하더라도, 개인의 기본권을 침해하므로 반드시 법률에 의하여 그 종류 및 요건과 절차가 갖추어져야 한다.", q1: 'O', q2_question: "다음 사례는 형사 절차에서 인권 보장을 위한 어떤 원칙을 위반한 것으로 볼 수 있습니까? <br>\"경찰관 甲은 乙을 체포 후, 권리 고지 없이 심문하여 자백을 받았고, 이 자백이 유일한 유죄 증거로 제시되었다.\"", q2: ["영장주의", "무죄 추정의 원칙", "자백 보강 법칙 및 미란다 원칙(진술 거부권 고지)", "적법 절차의 원칙 및 형사 보상 제도"], answerIndex: 2, explanation: "이 사례에서는 乙에게 진술 거부권 등의 고지(미란다 원칙)가 이루어지지 않아 위법하게 수집된 자백에 해당하며, 또한 자백이 유일한 증거로 제시되었으므로 자백 보강 법칙에 위배된다. 이 두 원칙 위반이 핵심이다." },
             { id: 406, type: 'two-step', difficulty: '최상', case: "학생 갑은 학교 폭력 가해자로 지목되어 징계가 확정되기 전에 전면 등교 금지 조치를 받았다. 이러한 학교의 조치는 우리 헌법상 형사사법 절차에 적용되는 기본권 보호 원칙에 비추어 정당하다고 볼 수 있는가?", q1: 'X', q2_question: "위 상황에서 갑이 보장받지 못한 형사 절차에서의 인권 보장 원칙은 무엇인가?", q2: ["진술 거부권", "변호인의 조력을 받을 권리", "무죄 추정의 원칙", "증거재판주의"], answerIndex: 2, explanation: "형사 절차에서 유죄 확정 전까지는 무죄로 추정해야 하며, 징계 확정 전 불이익 조치는 위 원칙에 반한다." },
@@ -1139,120 +1139,7 @@
         ];
 
         // ==================================================================
-        // 🌟 누락되었던 핵심 유틸리티 함수 복구 영역
-        // ==================================================================
-
-        // 화면 전환 함수
-        function showScreen(screenId) {
-            screens.forEach(screen => screen.classList.remove('active'));
-            document.getElementById(screenId).classList.add('active');
-            gameState.currentScreen = screenId;
-        }
-
-        // BGM 자동 재생 함수
-        function initAndPlayBGM() {
-            if (bgmAudioElement.paused) {
-                bgmAudioElement.volume = 0.3; // 볼륨 30%
-                bgmAudioElement.play().catch(e => console.log("BGM 자동 재생 방지됨", e));
-            }
-        }
-
-        // 랭킹 화면 표시 및 데이터 로드 함수
-        async function openRankingScreen() {
-            showScreen('ranking-screen');
-            const listContent = document.getElementById('ranking-list-content');
-            listContent.innerHTML = "<p>서버에서 랭킹을 불러오는 중입니다...</p>";
-            const res = await fetchAPI('getRankings');
-            
-            if (res.error) {
-                listContent.innerHTML = `<p style="color:var(--danger-color);">${res.error}</p>`;
-                return;
-            }
-            if (!res.rankings || res.rankings.length === 0) {
-                listContent.innerHTML = "<p>아직 등록된 랭킹이 없습니다.</p>";
-                return;
-            }
-            
-            let html = "<table><tr><th>순위</th><th>닉네임</th><th>레벨</th><th>점수</th></tr>";
-            res.rankings.forEach((r, idx) => {
-                html += `<tr><td>${idx + 1}</td><td>${r.nickname}</td><td>${r.level}</td><td>${r.score}</td></tr>`;
-            });
-            html += "</table>";
-            listContent.innerHTML = html;
-        }
-
-        // 게임 상태 초기화 함수
-        function resetGameState() {
-            gameState = {
-                player: { name: '', class: '', gender: '', level: 1, imageKey: '' },
-                score: 0,
-                clearedStages: { "하": false, "중": false, "상": false },
-                isChallengeUnlocked: false,
-                isAdmin: false,
-                difficulty: '',
-                lives: 3,
-                questionsCorrect: 0,
-                currentMonster: null,
-                currentQuiz: null,
-                usedQuizIds: [],
-                isBossFight: false,
-                bossStage: 0,
-                hasUsedUltimate: false,
-                currentScreen: '',
-                animation: { type: null, duration: 0, progress: 0, onEnd: null, data: {} },
-                isSkippable: false,
-                skippableTimeoutId: null,
-                onSkip: null
-            };
-        }
-
-        // 게임 시작 초기 세팅
-        function initGame() {
-            resetGameState();
-            showScreen('story-screen');
-        }
-
-        // 서버 저장 로직
-        async function saveGame(showAlert) {
-            if (!gameState.player.name) return;
-            const dataToSave = {
-                nickname: gameState.player.name,
-                class: gameState.player.class,
-                gender: gameState.player.gender,
-                level: gameState.player.level,
-                score: gameState.score,
-                clearedStages: gameState.clearedStages,
-                isAdmin: gameState.isAdmin
-            };
-            
-            if (showAlert) showMessage("서버에 저장 중...");
-            const res = await fetchAPI('save', { playerData: dataToSave });
-            
-            if (showAlert) {
-                if (res.error) showMessage(`저장 실패: ${res.error}`);
-                else showMessage("게임 데이터가 서버에 안전하게 저장되었습니다.");
-            }
-        }
-
-        // 애니메이션 시작 제어
-        function startAnimation(type, duration, onEnd) {
-            gameState.animation = { type, duration, progress: 0, onEnd, data: {} };
-        }
-
-        // 애니메이션 초기화(스킵)
-        function clearAnimation() {
-            if (gameState.skippableTimeoutId) {
-                clearTimeout(gameState.skippableTimeoutId);
-                gameState.skippableTimeoutId = null;
-            }
-            gameState.isSkippable = false;
-            gameState.onSkip = null;
-            gameState.animation = { type: null, duration: 0, progress: 0, onEnd: null, data: {} };
-        }
-
-
-        // ==================================================================
-        // 통신 및 유틸리티 함수 (기존 코드 유지)
+        // 통신 및 화면 조작 함수
         // ==================================================================
         async function fetchAPI(action, data = {}) {
             const payload = { action: action, ...data };
@@ -1344,27 +1231,15 @@
         }
 
         // ==================================================================
-        // 이벤트 리스너 통합 설정
+        // 이벤트 리스너 세팅
         // ==================================================================
         function setupEventListeners() {
-            // 화면 전환 및 BGM
-            document.getElementById('story-screen').addEventListener('click', () => { 
-                showScreen('start-screen'); 
-            });
-
-            document.getElementById('go-login-btn').addEventListener('click', () => { 
-                initAndPlayBGM(); 
-                showScreen('login-screen'); 
-            });
-
-            document.getElementById('login-back-btn').addEventListener('click', () => { 
-                showScreen('start-screen'); 
-            });
-
+            document.getElementById('story-screen').addEventListener('click', () => { showScreen('start-screen'); });
+            document.getElementById('go-login-btn').addEventListener('click', () => { initAndPlayBGM(); showScreen('login-screen'); });
+            document.getElementById('login-back-btn').addEventListener('click', () => { showScreen('start-screen'); });
             document.getElementById('ranking-btn').addEventListener('click', openRankingScreen);
             document.getElementById('close-ranking-btn').addEventListener('click', () => showScreen('start-screen'));
 
-            // 로그인 & 회원가입
             document.getElementById('do-login-btn').addEventListener('click', async () => {
                 const nick = document.getElementById('login-nickname').value.trim();
                 const pw = document.getElementById('login-password').value.trim();
@@ -1385,7 +1260,6 @@
                 if (res.error) { showMessage(res.error); } else { applyLoginData(res); }
             });
 
-            // 랭킹 검색
             document.getElementById('search-ranking-btn').addEventListener('click', async () => {
                 const nickname = document.getElementById('search-nickname').value.trim();
                 if (!nickname) return;
@@ -1399,7 +1273,6 @@
                 }
             });
 
-            // 캐릭터 선택 & 난이도 화면
             document.querySelectorAll('#character-selection-screen .char-card').forEach(card => {
                 card.addEventListener('click', () => {
                     document.querySelectorAll('#character-selection-screen .char-card').forEach(c => c.classList.remove('selected'));
@@ -1434,7 +1307,6 @@
                 showScreen('character-selection-screen');
             });
 
-            // 인게임 동작
             document.getElementById('back-to-difficulty-btn').addEventListener('click', () => { saveGame(false); setupDifficultyScreen(); });
             document.getElementById('ultimate-skill-btn').addEventListener('click', handleUltimateSkill);
 
@@ -1485,7 +1357,112 @@
             document.getElementById('game-screen').addEventListener('click', (e) => { if (e.target.id === 'game-canvas') skipCurrentEvent(); });
         }
 
-        // 로그인 데이터 적용 함수
+        // ==================================================================
+        // 게임 초기화
+        // ==================================================================
+        window.addEventListener('load', () => {
+            setupEventListeners();
+            resizeCanvas();
+            initGame();
+            
+            async function loadAssetsAsync() {
+                const imageSources = [
+                    ...Object.values(assets.characters),
+                    ...Object.values(assets.monsters),
+                    ...Object.values(assets.misc)
+                ];
+                
+                const imagePromises = imageSources.map(src => {
+                    return new Promise((resolve) => {
+                        const img = new Image();
+                        const finish = () => {
+                            for (const category in assets) {
+                                const key = Object.keys(assets[category]).find(k => assets[category][k] === src);
+                                if (key) { loadedImages[key] = img; break; }
+                            }
+                            resolve();
+                        };
+                        img.onload = finish;
+                        img.onerror = finish;
+                        img.src = src;
+                        if (img.complete) finish();
+                    });
+                });
+                await Promise.all(imagePromises);
+            }
+            loadAssetsAsync();
+        });
+        
+        window.addEventListener('resize', resizeCanvas);
+
+        function initGame() {
+            resetGameState();
+            showScreen('story-screen');
+        }
+
+        function resetGameState() {
+             gameState = {
+                  player: { name: '', class: '', gender: '', level: 1, imageKey: '' },
+                  difficulty: null, lives: 5, monstersDefeated: 0,
+                  currentMonster: { type: null, imageKey: null, x: 0, y: 0, hitProgress: 0, alpha: 1 },
+                  currentQuiz: null, usedQuizIds: [],
+                  clearedStages: { '하': false, '중': false, '상': false },
+                  isBossFight: false, bossStage: 0,
+                  currentScreen: 'start-screen',
+                  animation: { type: null, progress: 0, duration: 0, onEnd: null, data: {} },
+                  questionsCorrect: 0,
+                  isSkippable: false,
+                  onSkip: null,
+                  skippableTimeoutId: null,
+                  isChallengeUnlocked: false,
+                  score: 0,
+                  hasUsedUltimate: false,
+                  isAdmin: false
+             };
+             gameOverDebris = [];
+             backgroundParticles = [];
+             effectParticles = [];
+             isInputLocked = false;
+        }
+
+        function showScreen(screenId) {
+            screens.forEach(screen => screen.classList.remove('active'));
+            document.getElementById(screenId).classList.add('active');
+            gameState.currentScreen = screenId;
+
+            const isGameScreen = screenId === 'game-screen';
+            failsafeContainer.style.display = isGameScreen ? 'block' : 'none';
+            instructionsModal.style.display = 'none'; 
+            fixedButtonsContainer.style.display = isGameScreen ? 'block' : 'none';
+
+            if (!isGameScreen && animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+                animationFrameId = null;
+            }
+        }
+        
+        function initAndPlayBGM() {
+            if (bgmAudioElement.paused) {
+                const playPromise = bgmAudioElement.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(error => {
+                        console.log("BGM 자동재생 대기:", error);
+                    });
+                }
+            }
+        }
+        
+        function startAnimation(type, duration, onEnd, data = {}) {
+            gameState.animation = { type, duration, progress: 0, onEnd, data };
+        }
+
+        function clearAnimation() {
+            if (gameState.animation && typeof gameState.animation.onEnd === 'function') {
+                gameState.animation.onEnd();
+            }
+            gameState.animation = { type: null, duration: 0, progress: 0, onEnd: null, data: {} };
+        }
+
         function applyLoginData(res) {
             resetGameState();
             Object.assign(gameState.player, { name: res.nickname, class: res.class, gender: res.gender, level: res.level });
@@ -1505,6 +1482,50 @@
             } else {
                 showMessage(`'${res.nickname}'님 환영합니다!`, setupDifficultyScreen);
             }
+        }
+
+        async function saveGame(showAlert = true) {
+            if (showAlert) showMessage("서버에 진행 상황을 저장 중입니다...");
+            const playerData = {
+                nickname: gameState.player.name,
+                class: gameState.player.class,
+                gender: gameState.player.gender,
+                level: gameState.player.level,
+                score: gameState.score || 0,
+                clearedStages: gameState.clearedStages,
+                isAdmin: gameState.isAdmin
+            };
+            
+            const res = await fetchAPI('save', { playerData: playerData });
+            if (res.error || !res.success) {
+                if (showAlert) showMessage("저장에 실패했습니다. 잠시 후 다시 시도해주세요.");
+            } else {
+                if (showAlert) showMessage("진행 상황이 성공적으로 저장되었습니다!");
+            }
+        }
+
+        async function openRankingScreen() {
+            showScreen('ranking-screen');
+            const listContent = document.getElementById('ranking-list-content');
+            listContent.innerHTML = "<p>서버에서 랭킹을 불러오는 중입니다...</p>";
+            
+            const res = await fetchAPI('getRankings');
+            if (res.error) {
+                listContent.innerHTML = `<p style="color:var(--danger-color);">${res.error}</p>`;
+                return;
+            }
+            if (!res.rankings || res.rankings.length === 0) {
+                listContent.innerHTML = "<p>아직 등록된 랭킹이 없습니다.</p>";
+                return;
+            }
+            
+            let html = "<table><tr><th>순위</th><th>닉네임</th><th>레벨</th><th>점수</th></tr>";
+            res.rankings.forEach((r, idx) => {
+                let rankMark = (idx === 0) ? "🥇" : (idx === 1) ? "🥈" : (idx === 2) ? "🥉" : `${idx + 1}위`;
+                html += `<tr><td>${rankMark}</td><td>${r.nickname}</td><td>${r.level}</td><td>${r.score}</td></tr>`;
+            });
+            html += "</table>";
+            listContent.innerHTML = html;
         }
 
         // ==================================================================
@@ -2330,7 +2351,18 @@
             } else if (gameState.player.class === '마법사') {
                 if (level <= 3) {
                     const effects = [
-                        (p) => drawMeteorShower(p * 0.5), 
+                        // 💡 마법사 1레벨 궁극기 "에너지 폭풍" (여러 개 구체 폭발)
+                        (p) => {
+                            if (p > 0.2 && p < 0.7 && Math.random() > 0.5) {
+                                const x = canvas.width * 0.4 + Math.random() * (canvas.width * 0.5);
+                                const y = canvas.height * 0.3 + Math.random() * (canvas.height * 0.5);
+                                effectParticles.push({ type: 'secondary_explosion', x: x, y: y, life: 0.4, maxLife: 0.4, radius: Math.random() * 60 + 40, color: '#9b59b6' });
+                            }
+                            if (p > 0.7) {
+                                const finalP = (p - 0.7) / 0.3;
+                                drawExplosion(canvas.width * 0.75, canvas.height * 0.65, 250 * Math.sin(finalP * Math.PI), '#8e44ad', '#9b59b6');
+                            }
+                        }, 
                         drawIceRain,                      
                         drawMultiLightning                
                     ];
@@ -2341,7 +2373,7 @@
                     if (finalMeteorProgress > 0) {
                         drawFinalMeteor(finalMeteorProgress);
                     }
-                } else { 
+                } else { // Lv 5
                     drawGrandElemental(progress);
                     const explosionProgress = Math.max(0, (progress - 0.8) / 0.2);
                     if (explosionProgress > 0) {
